@@ -16,13 +16,16 @@ Here you will find a page where the plugin is in use: [BookLover]{http://books.n
 By this plugin, you can build a alphabetically sorted index like:
 
 A
+
 * A post
 * A second post
 
 D
+
 * Do you really like that?
 
 H
+
 * How to do something
 
 Each post title is directly linked to the post permalink and can have different additional information.
