@@ -3,7 +3,7 @@ Contributors: iTux
 Tags: post, index, overview, list, reference
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 0.1
+Stable tag: 0.2
 
 Build an index of all posts found for a specific category and display it in any page or post. The first version is limited to one category which can be defined in the admin section of the plugin.
 
@@ -40,6 +40,9 @@ This section describes how to install the plugin and get it working.
 1. Place `<!--post-index-->` in your page or post to display the index
 
 == Changelog ==
+
+= 0.2 =
+* Fixed a bug that caused the meta box to not correctly load the custom field values.
 
 = 0.1 =
 * First version - This version is available only German at the moment!
