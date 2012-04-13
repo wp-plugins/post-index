@@ -9,7 +9,7 @@ Build an index of all posts found for a specific category and display it in any 
 
 == Description ==
 
-Here you will find a page where the plugin is in use: [BookLover]{http://books.nivija.com/rezensionen/ BookLover Blog}
+Here you will find a page where the plugin is in use: [BookLover](http://books.nivija.com/rezensionen/ "BookLover Blog")
 
 ***
 
