@@ -3,7 +3,7 @@
  Plugin Name: Post Index
  Plugin URI: http://wordpress.org/extend/plugins/post-index/
  Description: This plugin summarises all found blog posts added to a specific category and lists them alphabetically. Additional custom fields could be used to display links to other pages or additional information to a post.
- Version: 0.2
+ Version: 0.3
  Author: Thomas A. Hirsch
  Author URI: http://www.thirsch.de/
 */
@@ -78,6 +78,7 @@ class PostSummary {
 		           );
 		           
 		$this->itemCount = 0;
+		$this->items = NULL;
 		           
 		while (have_posts()) : the_post();
 			++$this->itemCount;
@@ -185,25 +186,35 @@ class PostSummary {
 }
 
 include_once 'php/settings.php';
-$postIndexPluginSettings = new PostIndexSettings(POST_INDEX_PLUGIN_NAME, POST_INDEX_PLUGIN_LABEL, POST_INDEX_PLUGIN_BASENAME);
-
+$postIndexPluginSettings = new PostIndexSettings( POST_INDEX_PLUGIN_NAME
+												, POST_INDEX_PLUGIN_LABEL
+												, POST_INDEX_PLUGIN_BASENAME
+												);
 
 function postSummaryFilter($data) {
 	global $postIndexPluginSettings;
-	$pattern = '/\<\!\-\-\s*post-index\s*\-\-\>/';
-	while(preg_match($pattern, $data, $matches))
+
+	$ps = new PostSummary($postIndexPluginSettings);
+
+	// (?:\((.*)\))?
+	$pattern = '/\<\!\-\-\s*post-index\s*(?:\(\'?([^\']*)\'?\))?\s*\-\-\>/';
+	if(preg_match_all($pattern, $data, $matches))
 	{
-		ob_start();
+		for($i = 0; $i < count($matches[0]); $i++) {
+			$category_name = $matches[1][$i];
+			$replace_pattern = '/' . preg_quote($matches[0][$i]) . '/';
 
-		$ps = new PostSummary($postIndexPluginSettings);
-		$ps->parse(NULL);
-		$ps->printOut();
+			ob_start();	
+			$ps->parse($category_name);
+			$ps->printOut();
 
-		$content = ob_get_contents();
-		ob_end_clean();
-		$replace_pattern = $pattern;
-		$data = preg_replace($replace_pattern, $content, $data);
+			$content = ob_get_contents();
+			ob_end_clean();
+										
+			$data = preg_replace($replace_pattern, $content, $data);	
+		}
 	}
+	
 	return $data;
 }
 

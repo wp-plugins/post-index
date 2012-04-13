@@ -5,7 +5,7 @@ Requires at least: 3.0
 Tested up to: 3.3.1
 Stable tag: 0.2
 
-Build an index of all posts found for a specific category and display it in any page or post. The first version is limited to one category which can be defined in the admin section of the plugin.
+Build an index of all posts found for a specific category and display it in any page or post. 
 
 == Description ==
 
@@ -26,7 +26,6 @@ Each post title is directly linked to the post permalink and can have different 
 What comes next?
 
 * Translation from German to English
-* Category to be defined in the <!--post-index--> include tag.
 * Additional text from custom fields and an admin setting to change the link name
 * Or any idea, you post me :)
 
@@ -37,9 +36,12 @@ This section describes how to install the plugin and get it working.
 1. Upload the plugin folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Please define your custom fields and custom titles in the settings page
-1. Place `<!--post-index-->` in your page or post to display the index
+1. Place `<!--post-index-->` or `<!--post-index('CategoryName')-->` in your page or post to display the index
 
 == Changelog ==
+
+= 0.3 =
+* Parses the post-index hook and extracts the category name from it.
 
 = 0.2 =
 * Fixed a bug that caused the meta box to not correctly load the custom field values.
