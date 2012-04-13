@@ -3,7 +3,7 @@ Contributors: iTux
 Tags: post, index, overview, list, reference
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 
+Stable tag: trunk
 
 Build an index usable in any page or post. The first version uses a defined category to get only posts of that category.
 
