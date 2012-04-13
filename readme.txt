@@ -3,9 +3,9 @@ Contributors: iTux
 Tags: post, index, overview, list, reference
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: trunk
+Stable tag: 0.1
 
-Build an index usable in any page or post. The first version uses a defined category to get only posts of that category.
+Build an index of all posts found for a specific category and display it in any page or post. The first version is limited to one category which can be defined in the admin section of the plugin.
 
 == Description ==
 
@@ -26,8 +26,8 @@ Each post title is directly linked to the post permalink and can have different 
 What comes next?
 
 * Translation from German to English
-* Freely definable additional information (handled via custom fields)
-* An admin page to manage the plugin settings
+* Category to be defined in the <!--post-index--> include tag.
+* Additional text from custom fields and an admin setting to change the link name
 * Or any idea, you post me :)
 
 == Installation ==
@@ -36,6 +36,7 @@ This section describes how to install the plugin and get it working.
 
 1. Upload the plugin folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Please define your custom fields and custom titles in the settings page
 1. Place `<!--post-index-->` in your page or post to display the index
 
 == Changelog ==
