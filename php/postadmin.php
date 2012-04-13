@@ -38,10 +38,7 @@
          delete_post_meta($postId, $fieldName);
       }
       
-      public function innerCustomBox($post_id) {
-      // http://codex.wordpress.org/Function_Reference/add_meta_box
-      
-      
+      public function innerCustomBox($post) {
          //TODO settings-link u.U. nur, wenn entsprechende Rechte vorhanden sind!
          if(empty($this->pluginSettings->settings) || empty($this->pluginSettings->settings['infoLinks'])) {
             echo 'Keine Zusatzinformationen f&uuml;r Post Index konfiguriert! ';
@@ -54,7 +51,7 @@
          
          ?><table class="form-table"><?php
          foreach($settings['infoLinks'] as $name => $field) {
-            $value = $this->getCustomFieldValue($post_id, $field, '');
+            $value = $this->getCustomFieldValue($post->ID, $field, '');
             ?><tr>
                <td><label for="<?=POST_INDEX_PLUGIN_PREFIX . $field;?>" style="white-space:nowrap;"><?=$name;?></label></td><td style="width: 100%;"><input type="text" class="regular-text" value="<?=$value;?>" name="<?=POST_INDEX_PLUGIN_PREFIX . $field;?>" style="width: 100%;" /></td>
             </tr><?php
@@ -63,7 +60,7 @@
          <?php
       }
       
-      public function savePostData( $post_id ) {
+      public function savePostData( $postId ) {
          // verify if this is an auto save routine. 
          // If it is our form has not been submitted, so we dont want to do anything
          if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) 
@@ -76,10 +73,10 @@
   
          // Check permissions
          if ( 'page' == $_POST['post_type'] ) {
-            if ( !current_user_can( 'edit_page', $post_id ) )
+            if ( !current_user_can( 'edit_page', $postId ) )
                return;
          } else {
-            if ( !current_user_can( 'edit_post', $post_id ) )
+            if ( !current_user_can( 'edit_post', $postId ) )
                return;
          }
          
@@ -88,9 +85,9 @@
          foreach($settings['infoLinks'] as $name => $field) {
             $url = $_POST[POST_INDEX_PLUGIN_PREFIX . $field];
             if(!empty($url)) {
-               $this->setCustomFieldValue($post_id, $field, $url);
+               $this->setCustomFieldValue($postId, $field, $url);
             } else {
-               $this->deleteCustomField($post_id, $field);
+               $this->deleteCustomField($postId, $field);
             }
          }
       }
