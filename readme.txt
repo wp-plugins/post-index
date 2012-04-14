@@ -3,7 +3,7 @@ Contributors: iTux
 Tags: post, index, overview, list, reference
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 0.5
+Stable tag: 0.6
 
 Build an index of all posts found for a specific category and display it in any page or post. 
 
