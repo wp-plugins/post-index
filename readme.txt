@@ -13,30 +13,14 @@ Build an index of all posts found for a specific category and display it in any 
 
 == Description ==
 
-Here you will find a page where the plugin is in use: [BookLover](http://books.nivija.com/rezensionen/ "BookLover Blog")
+[Here](http://books.nivija.com/rezensionen/ "BookLover Blog"), you will find a page where the plugin is in use or have a look to the screenshots page to see it in action.
 
 ***
 
-With this plugin, you can build a alphabetically sorted index like:
-
-A
-
-* A post
-* A second post
-
-D
-
-* Do you really like that?
-
-H
-
-* How to do something
-
-Each post title is directly linked to the post permalink and can have different additional information.
+This plugin summarises all found blog posts added to a specific category and lists them alphabetically. Additional custom fields could be used to display links to other pages or additional information to a post.
 
 What comes next?
 
-* Translation from German to English
 * Additional text to a link from custom fields and an admin setting to change the link name
 * Or any idea, you post me :)
 
@@ -75,6 +59,9 @@ The plugin uses shortcodes now. Please change your page or post and replace `<!-
 
 
 == Changelog ==
+
+= 0.6 =
+* Translated the plugin to English and added a German translation file.
 
 = 0.5 =
 * Using shortcodes instead of content parsing.

@@ -8,6 +8,7 @@
 	Author URI: http://www.thirsch.de/
 	Last Updated: 2012-04-14
  	License: GPLv2 or later
+ 	Text Domain: post-index
 
 	This program is free software; you can redistribute it and/or
 	modify it under the terms of the GNU General Public License
