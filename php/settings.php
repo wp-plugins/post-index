@@ -252,7 +252,7 @@
 		
 		public function loadDefaults() {
 			$settings['defaultCategory'] = __('Allgemein');
-			$settings['infoSeparator'] = array(__('au&szlig;erdem bei '), ', ', __(' und '), '');
+			$settings['infoSeparator'] = array(__('au&szlig;erdem bei '), ', ', ' ' . __('und') . ' ', '');
 			$settings['postLabel'] = array('keinen Artikel', 'einen Artikel', ' ' . __('Artikel'));
 			$settings['pageDescription'] = __('Auf diesem Blog findest Du bisher ${PostCount}. Viel Spass beim St&ouml;bern!');
 			$settings['infoLinks'] = array ( 'Amazon' => 'url_amazon' );
