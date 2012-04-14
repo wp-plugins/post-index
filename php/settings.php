@@ -252,7 +252,17 @@
 		
 		public function loadDefaults() {
 			$settings['defaultCategory'] = __('General', 'post-index');
-			$settings['infoSeparator'] = array(__('also at ', 'post-index'), ', ', ' ' . __('und', 'post-index') . ' ', '');
+			
+			/* translators: The first part of the additional links sentence. Please be aware of any blanks. */
+			$first = __('also at ', 'post-index');
+			/* translators: Repeated separator of the additional links sentence. Please be aware  of any blanks. */
+			$next = __(', ', 'post-index');
+			/* translators: Last separator of the additional links sentence. Please be aware of any blanks. */
+			$last = __(' and ', 'post-index');
+			/* translators: Final part of the additional links sentence. Please be aware of any blanks. */
+			$end = __('', 'post-index');
+			
+			$settings['infoSeparator'] = array($first, $next, $last, $end);
 			$settings['postLabel'] = array('no post', 'one post', ' ' . __('posts', 'post-index'));
 			$settings['pageDescription'] = __('You will find ${PostCount} in the category ${Category} on this blog.', 'post-index');
 			$settings['infoLinks'] = array ( 'Amazon' => 'url_amazon' );
