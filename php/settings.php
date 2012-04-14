@@ -106,7 +106,7 @@
 							<td><textarea class="regular-text" name="pageDescription" style='width: 293px;'><?php echo($pageDescription); ?></textarea></td>
 						</tr>
 						<tr>
-							<th><? _e('Post label', 'post-index'); ?><br /><sub><? _e('(for non, one and many posts)', 'post-index');?></sub></th>
+							<th><? _e('Post label', 'post-index'); ?><br /><sub><? _e('(for none, one and many posts)', 'post-index');?></sub></th>
 							<td><input type="text" value="<?php echo($postLabel[0]); ?>" class="regular-text" name="postLabel[0]" style='width: 90px;' /><input type="text" value="<?php echo($postLabel[1]); ?>" class="regular-text" name="postLabel[1]" style='width: 90px;' /><input type="text" value="<?php echo($postLabel[2]); ?>" class="regular-text" name="postLabel[2]" style='width: 90px;' /></td>
 						</tr>
 					</table>
@@ -260,10 +260,10 @@
 			/* translators: Last separator of the additional links sentence. Please be aware of any blanks. */
 			$last = __(' and ', 'post-index');
 			/* translators: Final part of the additional links sentence. Please be aware of any blanks. */
-			$end = __('', 'post-index');
+			$end = __('!', 'post-index');
 			
 			$settings['infoSeparator'] = array($first, $next, $last, $end);
-			$settings['postLabel'] = array('no post', 'one post', ' ' . __('posts', 'post-index'));
+			$settings['postLabel'] = array(__('no post', 'post-index'), __('one post', 'post-index'), ' ' . __('posts', 'post-index'));
 			$settings['pageDescription'] = __('You will find ${PostCount} in the category ${Category} on this blog.', 'post-index');
 			$settings['infoLinks'] = array ( 'Amazon' => 'url_amazon' );
 			
