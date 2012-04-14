@@ -90,7 +90,7 @@ if(!is_admin()) {
 		return $content;
 	}
 	
-	add_shortcode('post-index', 'post_index_func');
+	add_shortcode('post_index', 'post_index_func');
 }
 
 /*

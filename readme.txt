@@ -3,7 +3,7 @@ Contributors: iTux
 Tags: post, index, overview, list, reference
 Requires at least: 3.0
 Tested up to: 3.3.1
-Stable tag: 0.4
+Stable tag: 0.5
 
 Build an index of all posts found for a specific category and display it in any page or post. 
 
@@ -45,7 +45,7 @@ This section describes how to install the plugin and get it working.
 1. Upload the plugin folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Please define your custom fields and custom titles in the settings page
-1. Place `[post-index]` or `[post-index category='CategoryName']` in your page or post to display the index
+1. Place `[post_index]` or `[post_index category='CategoryName']` in your page or post to display the index
 
 
 == Frequently Asked Questions ==
@@ -54,18 +54,18 @@ This section describes how to install the plugin and get it working.
 
 Did you enter the tag `<!--post-index-->` in the Visual or HTML mode of the editor? You have to use the HTML mode, otherwise the tag `<!--post-index-->` does simply appear as it is on your page. 
 
-Please use `[post-index]`, supported since Version 0.4, to avoid that!
+Please use `[post_index]`, supported since Version 0.5, to avoid that!
 
 
 == Upgrade Notice ==
 
-= 0.4 =
-The plugin uses shortcodes now. Please change your page or post and replace `<!--post-index-->` with `[post-index]`! Thanks to [Franz Wieser](http://www.wieser.at/ "Franz Wieser")
+= 0.5 =
+The plugin uses shortcodes now. Please change your page or post and replace `<!--post-index-->` with `[post_index]`! Thanks to [Franz Wieser](http://www.wieser.at/ "Franz Wieser")
 
 
 == Changelog ==
 
-= 0.4 =
+= 0.5 =
 * Using shortcodes instead of content parsing.
 
 = 0.3 =
