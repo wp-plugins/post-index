@@ -36,6 +36,12 @@ $postIndexPluginSettings = new PostIndexSettings( POST_INDEX_PLUGIN_NAME
 												, POST_INDEX_PLUGIN_BASENAME
 												);
 
+function post_index_init() {
+	$plugin_dir = basename(dirname(__FILE__));
+	load_plugin_textdomain( POST_INDEX_PLUGIN_NAME, false, $plugin_dir );
+}
+add_action('init', 'post_index_init');
+
 /*
  * Include the index builder.
  */

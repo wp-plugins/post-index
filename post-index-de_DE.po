@@ -1,0 +1,158 @@
+# Copyright (C) 2012 Post Index
+# This file is distributed under the same license as the Post Index package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Post Index 0.5\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/post-index\n"
+"POT-Creation-Date: 2012-04-14 20:42:45+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2012-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Thomas A. Hirsch <me@thirsch.de>\n"
+
+#: php/postadmin.php:14
+msgid "Post Index - Additional links"
+msgstr "Post Index - Zus&auml;tzliche Links"
+
+#: php/postadmin.php:43
+msgid "No additional links defined yet!"
+msgstr "Keine Zusatzinformationen f&uuml;r Post Index konfiguriert!"
+
+#: php/postsummary.php:142
+msgid "Jump to"
+msgstr "Springe zu:"
+
+#. translators: a book 'by {author}'
+#: php/postsummary.php:159
+msgid "by %s"
+msgstr "von %s"
+
+#: php/settings.php:85
+msgid "Settings saved."
+msgstr "Einstellungen wurden gespeichert."
+
+#: php/settings.php:92
+msgid "%s Settings"
+msgstr "Einstellungen &rsaquo; %s"
+
+#: php/settings.php:96
+msgid "General settings"
+msgstr "Grundeinstellungen"
+
+#: php/settings.php:97
+msgid "Please define general settings for the plugin."
+msgstr "In diesem Bereich werden generelle Einstellungen f&uuml;r den Post Index hinterlegt."
+
+#: php/settings.php:101
+msgid "Default category"
+msgstr "Kategorie"
+
+#: php/settings.php:105
+msgid "Page description"
+msgstr "Seitenbeschreibung"
+
+#: php/settings.php:109
+msgid "Post label"
+msgstr "Beitragsbezeichnung"
+
+#: php/settings.php:109
+msgid "(for none, one and many posts)"
+msgstr "(f&uuml;r keinen, einen und mehrere Artikel)"
+
+#: php/settings.php:114
+msgid "Additional links"
+msgstr "Zus&auml;tzliche Links"
+
+#: php/settings.php:115
+msgid ""
+"Additional links can be added via custom fields. The sentence that is "
+"displayed below each link in the index can be build with the following text "
+"parts. Define the custom fields for the additional links with the fields at "
+"the end of this section and use them directly in your post. You can display "
+"a %s at the end of this page."
+msgstr ""
+"Weitere Informationen zu Artikeln k&ouml;nnen derzeit &uuml;ber Links in "
+"Custom Fields hinzugef&uuml;gt werden. Den Aufbau der Linkzeile unterhalb "
+"des Artikels wird mit den nachfolgenden Trennw&ouml;rtern definiert. Die "
+"verf&uuml;gbaren Felder f&uuml;r Artikel sind danach aufgelistet. Ein "
+"Beispiel der Zusatzzeile wird nach dem Speichern im Bereich %s angezeigt."
+
+#: php/settings.php:115
+msgid "preview"
+msgstr "Vorschau"
+
+#: php/settings.php:119
+msgid "Sentence"
+msgstr "Satz"
+
+#: php/settings.php:119
+msgid "(First part, repeated separator, last separator, last part)"
+msgstr "(Anfang, wiederholtes Trennzeichen, letztes Trennzeichen, Schluss)"
+
+#: php/settings.php:127
+msgid "Name"
+msgstr ""
+
+#: php/settings.php:128
+msgid "Custom Field ID"
+msgstr ""
+
+#: php/settings.php:137 php/settings.php:193
+msgid "Remove"
+msgstr "Entfernen"
+
+#: php/settings.php:145
+msgid "Add"
+msgstr "Hinzuf&uuml;gen"
+
+#: php/settings.php:205
+msgid "Save Changes"
+msgstr "Speichern"
+
+#: php/settings.php:210
+msgid "Preview"
+msgstr "Vorschau"
+
+#: php/settings.php:254
+msgid "General"
+msgstr "Allgemein"
+
+#. translators: The first part of the additional links sentence. Please be
+#. aware of any blanks.
+#: php/settings.php:257
+msgid "also at "
+msgstr "auch bei "
+
+#. translators: Last separator of the additional links sentence. Please be
+#. aware of any blanks.
+#: php/settings.php:260
+msgid " and "
+msgstr " und "
+
+#: php/settings.php:264
+msgid "no post"
+msgstr "keinen Beitrag"
+
+#: php/settings.php:264
+msgid "one post"
+msgstr "einen Beitrag"
+
+#: php/settings.php:264
+msgid "posts"
+msgstr "Beitr%auml;ge"
+
+#: php/settings.php:265
+msgid "You will find ${PostCount} in the category ${Category} on this blog."
+msgstr "Auf diesem Blog findest Du bisher ${PostCount} in der Kategorie ${Category}. Viel Spass beim St&ouml;bern!"
+
+#. Description of the plugin/theme
+msgid ""
+"This plugin summarises all found blog posts added to a specific category and "
+"lists them alphabetically. Additional custom fields could be used to display "
+"links to other pages or additional information to a post."
+msgstr ""
+"Dieses Plugin erstellt einen Index aller Blogeintr&auml;ge f&ur eine "
+"bestimmte Kategorie und sortiert diese alphabetisch. Zus&auml;tzliche Links "
+"zu anderen Webseiten k&ouml;nnen &uuml;ber benutzerdefinierte Felder "
+"hinzugef&uuml;gt werden."
