@@ -82,7 +82,7 @@
 				$this->settings = $settings;
 				$this->save();
 			
-				echo "<div id='message' class='updated' style='width: 505px;'><p><b>" . __('Einstellungen wurden gespeichert.', 'post-index') . "</b></p></div>";
+				echo "<div id='message' class='updated' style='width: 505px;'><p><b>" . __('Settings saved.', 'post-index') . "</b></p></div>";
 			} 
 		
 			extract($this->settings);
