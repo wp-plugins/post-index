@@ -17,7 +17,7 @@ Here you will find a page where the plugin is in use: [BookLover](http://books.n
 
 ***
 
-By this plugin, you can build a alphabetically sorted index like:
+With this plugin, you can build a alphabetically sorted index like:
 
 A
 
@@ -49,6 +49,14 @@ This section describes how to install the plugin and get it working.
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Please define your custom fields and custom titles in the settings page
 1. Place `[post_index]` or `[post_index category='CategoryName']` in your page or post to display the index
+
+
+== Screenshots == 
+
+1. A sample page containing the shortcode [post-index].
+2. The tag in the page editor.
+3. The post editor and the new custom fields.
+4. Settings page to adjust the configuration of the plugin.
 
 
 == Frequently Asked Questions ==
