@@ -11,7 +11,7 @@
       
       public function addCustomBox() {
          add_meta_box( POST_INDEX_PLUGIN_PREFIX.'sectionid'
-                     , __('Post Index - Zus&auml;tzliche Links')
+                     , __('Post Index - Zus&auml;tzliche Links', 'post-index')
                      , array($this, 'innerCustomBox')
                      , 'post' 
                      );
@@ -40,7 +40,7 @@
       public function innerCustomBox($post) {
          //TODO settings-link u.U. nur, wenn entsprechende Rechte vorhanden sind!
          if(empty($this->pluginSettings->settings) || empty($this->pluginSettings->settings['infoLinks'])) {
-            _e('Keine Zusatzinformationen f&uuml;r Post Index konfiguriert! ');
+            _e('Keine Zusatzinformationen f&uuml;r Post Index konfiguriert! ', 'post-index');
             echo '<a href="'.$this->pluginSettings->GetPluginOptionsURL().'">' . __('Settings') . '</a>';
             return;
          } 
