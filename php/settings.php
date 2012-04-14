@@ -82,41 +82,41 @@
 				$this->settings = $settings;
 				$this->save();
 			
-				echo "<div id='message' class='updated' style='width: 505px;'><p><b>Einstellungen wurden gespeichert.</b></p></div>";
+				echo "<div id='message' class='updated' style='width: 505px;'><p><b>" . __('Einstellungen wurden gespeichert.') . "</b></p></div>";
 			} 
 		
 			extract($this->settings);
 
 			?><div class="wrap">
 			<div id="icon-options-general" class="icon32"><br /></div>
-				<h2>Einstellungen &rsaquo; <?=$this->pluginLabel;?></h2>
+				<h2><? _e('Einstellungen'); ?> &rsaquo; <?=$this->pluginLabel;?></h2>
 
 				<form method="post" action="options-general.php?page=<?=$this->pluginName;?>">
 					<input type="hidden" name="updateSettings" value="1" />
-					<h3>Grundeinstellungen</h3>
-					<p>In diesem Bereich werden generelle Einstellungen f&uuml;r den Post Index hinterlegt.</p>
+					<h3><? _e('Grundeinstellungen'); ?></h3>
+					<p><? _e('In diesem Bereich werden generelle Einstellungen f&uuml;r den Post Index hinterlegt.'); ?></p>
 
 					<table class="form-table">
 						<tr>
-							<th>Kategorie</th>
+							<th><? _e('Kategorie'); ?></th>
 							<td><input type="text" value="<?php echo($defaultCategory); ?>" class="regular-text" name="defaultCategory" style='width: 293px;' /></td>
 						</tr>   
 						<tr>
-							<th>Seitenbeschreibung</th>
+							<th><? _e('Seitenbeschreibung'); ?></th>
 							<td><textarea class="regular-text" name="pageDescription" style='width: 293px;'><?php echo($pageDescription); ?></textarea></td>
 						</tr>
 						<tr>
-							<th>Beitragsbezeichnung<br /><sub>(für keinen, einen und mehrere Artikel)</sub></th>
+							<th><? _e('Beitragsbezeichnung'); ?><br /><sub><? _e('(f&uuml;r keinen, einen und mehrere Artikel)');?></sub></th>
 							<td><input type="text" value="<?php echo($postLabel[0]); ?>" class="regular-text" name="postLabel[0]" style='width: 90px;' /><input type="text" value="<?php echo($postLabel[1]); ?>" class="regular-text" name="postLabel[1]" style='width: 90px;' /><input type="text" value="<?php echo($postLabel[2]); ?>" class="regular-text" name="postLabel[2]" style='width: 90px;' /></td>
 						</tr>
 					</table>
 				
-					<h3>Zus&auml;tzliche Informationen</h3>
-					<p>Weitere Informationen zu Artikeln k&ouml;nnen derzeit &uuml;ber Links in Custom Fields hinzugef&uuml;gt werden. Den Aufbau der Linkzeile unterhalb des Artikels wird mit den nachfolgenden Trennw&ouml;rtern definiert. Die verf&uuml;gbaren Felder f&uuml;r Artikel sind danach aufgelistet. Ein Beispiel der Zusatzzeile wird nach dem Speichern im Bereich <a href="#preview">Vorschau</a> angezeigt.</p>
+					<h3><? _e('Zus&auml;tzliche Links');?></h3>
+					<p><? printf(__('Weitere Informationen zu Artikeln k&ouml;nnen derzeit &uuml;ber Links in Custom Fields hinzugef&uuml;gt werden. Den Aufbau der Linkzeile unterhalb des Artikels wird mit den nachfolgenden Trennw&ouml;rtern definiert. Die verf&uuml;gbaren Felder f&uuml;r Artikel sind danach aufgelistet. Ein Beispiel der Zusatzzeile wird nach dem Speichern im Bereich %s angezeigt.'), '<a href="#preview">' . __('Vorschau') . '</a>'); ?></p>
 
 					<table class="form-table">
 						<tr>
-							<th>Satz<br /><sub>(Anfang, wiederholtes Trennzeichen, letztes Trennzeichen, Schluss)</sub></th>
+							<th><? _e('Satz');?><br /><sub><? _e('(Anfang, wiederholtes Trennzeichen, letztes Trennzeichen, Schluss)'); ?></sub></th>
 							<td><input type="text" value="<?=$infoSeparator[0];?>" class="regular-text" name="infoSeparator[0]" style='width: 90px;' /><input type="text" value="<?=$infoSeparator[1];?>" class="regular-text" name="infoSeparator[1]" style='width: 50px;' /><input type="text" value="<?=$infoSeparator[2];?>" class="regular-text" name="infoSeparator[2]" style='width: 50px;' /><input type="text" value="<?=$infoSeparator[3];?>" class="regular-text" name="infoSeparator[3]" style='width: 90px;' /></td>
 						</tr>
 					</table>
@@ -124,8 +124,8 @@
 					<table>
 						<thead>
 						<tr>
-							<th>Name</th>
-							<th>Custom Field ID</th>
+							<th><? _e('Name'); ?></th>
+							<th><? _e('Custom Field ID'); ?></th>
 						</tr></thead>
 						<tbody id="infoLinks"><?php
 							$i = 0;
@@ -134,7 +134,7 @@
 						?><tr id="infoLink<?=$i;?>">
 							<td><input type="text" value="<?=$name;?>" class="regular-text" name="infoLinksName[<?=$i;?>]" style='width: 293px;' /></td>
 							<td><input type="text" value="<?=$field;?>" class="regular-text" name="infoLinksField[<?=$i;?>]" style='width: 293px;' /></td>
-							<td><a onclick="removeLine('infoLink<?=$i;?>');" class="add-new-h2">entfernen</a></td>
+							<td><a onclick="removeLine('infoLink<?=$i;?>');" class="add-new-h2"><? _e('entfernen'); ?></a></td>
 						</tr><?php
 									$i++;
 								}
@@ -142,7 +142,7 @@
 					?></tbody><tfoot>
 					<tr>
 						<td>
-						<p><a id="addInfoLink" onclick="addInfoLink('infoLinks', <?=$i;?>);" class="add-new-h2">hinzufuegen</a></p>
+						<p><a id="addInfoLink" onclick="addInfoLink('infoLinks', <?=$i;?>);" class="add-new-h2"><? _e('hinzufuegen'); ?></a></p>
 						</td>
 					</tr>
 					</tfoot></table>
@@ -190,7 +190,7 @@
 							newRemoveButtonLink.setAttribute('class', 'add-new-h2');
 							newRemoveButtonLink.setAttribute('onclick', 'removeLine(\'infoLink' + lineId + '\');');
 							
-							var buttonName = document.createTextNode('entfernen');
+							var buttonName = document.createTextNode('<? _e('entfernen'); ?>');
 							newRemoveButtonLink.appendChild(buttonName);
 							
 							newRemoveButtonTD.appendChild(newRemoveButtonLink);
@@ -202,12 +202,12 @@
 						}
 					</script>
 					<p class="submit">
-						<input type="submit" class="button-primary" value="Speichern" name="submit" />
+						<input type="submit" class="button-primary" value="<? _e('Speichern'); ?>" name="submit" />
 					</p>
 				</form>
 				
 				<div id="icon-edit-pages" class="icon32 icon32-posts-post"><br /></div>
-				<a name="preview"><h2>Vorschau</h2></a>
+				<a name="preview"><h2><? _e('Vorschau'); ?></h2></a>
 				<br />
 				<?php
 					if(!empty($infoLinks)) {
@@ -251,10 +251,10 @@
 		}
 		
 		public function loadDefaults() {
-			$settings['defaultCategory'] = 'Allgemein';
-			$settings['infoSeparator'] = array('au&szlig;erdem bei ', ', ', ' und ', '');
-			$settings['postLabel'] = array('keinen Artikel', 'einen Artikel', ' Artikel');
-			$settings['pageDescription'] = 'Auf diesem Blog findest Du bisher ${PostCount}. Viel Spass beim St&ouml;bern!';
+			$settings['defaultCategory'] = __('Allgemein');
+			$settings['infoSeparator'] = array(__('au&szlig;erdem bei '), ', ', __(' und '), '');
+			$settings['postLabel'] = array('keinen Artikel', 'einen Artikel', ' ' . __('Artikel'));
+			$settings['pageDescription'] = __('Auf diesem Blog findest Du bisher ${PostCount}. Viel Spass beim St&ouml;bern!');
 			$settings['infoLinks'] = array ( 'Amazon' => 'url_amazon' );
 			
 			$this->settings = $settings;

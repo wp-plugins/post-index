@@ -132,7 +132,7 @@ class PostSummary {
 			return;
 	
 		echo '<hr />';
-		echo '<p>Springe direkt zu: ';
+		echo '<p>' . __('Springe direkt zu:') . ' ';
 		foreach(array_keys($this->items) as $index)
 		{
 			echo '<a href="#letter_' . $index . '">' . $index . '</a> ';
@@ -148,7 +148,8 @@ class PostSummary {
 			{
 				echo '<li><strong><a href="' . $book['permalink'] . '">' . $book['title'] . '</a></strong>';
 				if(!is_null($book[author])) {
-					echo ' von ' . $book['author'];
+					/* translators: a book 'from' an author */
+					echo ' ' . __('von') . ' . $book['author'];
 				}
 				
 				$linkList = $book['linkList'];
