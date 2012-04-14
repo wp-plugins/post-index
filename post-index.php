@@ -66,6 +66,7 @@ if(!is_admin()) {
 				$ps->printOut();
 	
 				$content = ob_get_contents();
+				
 				ob_end_clean();
 											
 				$data = preg_replace($replace_pattern, $content, $data);	
