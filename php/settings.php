@@ -89,34 +89,34 @@
 
 			?><div class="wrap">
 			<div id="icon-options-general" class="icon32"><br /></div>
-				<h2><? _e('Einstellungen', 'post-index'); ?> &rsaquo; <?=$this->pluginLabel;?></h2>
+				<h2><? printf(__('%s Settings', 'post-index'), $this->pluginLabel); ?></h2>
 
 				<form method="post" action="options-general.php?page=<?=$this->pluginName;?>">
 					<input type="hidden" name="updateSettings" value="1" />
-					<h3><? _e('Grundeinstellungen', 'post-index'); ?></h3>
-					<p><? _e('In diesem Bereich werden generelle Einstellungen f&uuml;r den Post Index hinterlegt.', 'post-index'); ?></p>
+					<h3><? _e('General settings', 'post-index'); ?></h3>
+					<p><? _e('Please define general settings for the plugin.', 'post-index'); ?></p>
 
 					<table class="form-table">
 						<tr>
-							<th><? _e('Kategorie', 'post-index'); ?></th>
+							<th><? _e('Default category', 'post-index'); ?></th>
 							<td><input type="text" value="<?php echo($defaultCategory); ?>" class="regular-text" name="defaultCategory" style='width: 293px;' /></td>
 						</tr>   
 						<tr>
-							<th><? _e('Seitenbeschreibung', 'post-index'); ?></th>
+							<th><? _e('Page description', 'post-index'); ?></th>
 							<td><textarea class="regular-text" name="pageDescription" style='width: 293px;'><?php echo($pageDescription); ?></textarea></td>
 						</tr>
 						<tr>
-							<th><? _e('Beitragsbezeichnung', 'post-index'); ?><br /><sub><? _e('(f&uuml;r keinen, einen und mehrere Artikel)', 'post-index');?></sub></th>
+							<th><? _e('Post label', 'post-index'); ?><br /><sub><? _e('(for non, one and many posts)', 'post-index');?></sub></th>
 							<td><input type="text" value="<?php echo($postLabel[0]); ?>" class="regular-text" name="postLabel[0]" style='width: 90px;' /><input type="text" value="<?php echo($postLabel[1]); ?>" class="regular-text" name="postLabel[1]" style='width: 90px;' /><input type="text" value="<?php echo($postLabel[2]); ?>" class="regular-text" name="postLabel[2]" style='width: 90px;' /></td>
 						</tr>
 					</table>
 				
-					<h3><? _e('Zus&auml;tzliche Links', 'post-index');?></h3>
-					<p><? printf(__('Weitere Informationen zu Artikeln k&ouml;nnen derzeit &uuml;ber Links in Custom Fields hinzugef&uuml;gt werden. Den Aufbau der Linkzeile unterhalb des Artikels wird mit den nachfolgenden Trennw&ouml;rtern definiert. Die verf&uuml;gbaren Felder f&uuml;r Artikel sind danach aufgelistet. Ein Beispiel der Zusatzzeile wird nach dem Speichern im Bereich %s angezeigt.', 'post-index'), '<a href="#preview">' . __('Vorschau', 'post-index') . '</a>'); ?></p>
+					<h3><? _e('Additional links', 'post-index');?></h3>
+					<p><? printf(__('Additional links can be added via custom fields. The sentence that is displayed below each link in the index can be build with the following text parts. Define the custom fields for the additional links with the fields at the end of this section and use them directly in your post. You can display a %s at the end of this page.', 'post-index'), '<a href="#preview">' . __('preview', 'post-index') . '</a>'); ?></p>
 
 					<table class="form-table">
 						<tr>
-							<th><? _e('Satz', 'post-index');?><br /><sub><? _e('(Anfang, wiederholtes Trennzeichen, letztes Trennzeichen, Schluss)', 'post-index'); ?></sub></th>
+							<th><? _e('Sentence', 'post-index');?><br /><sub><? _e('(First part, repeated separator, last separator, last part)', 'post-index'); ?></sub></th>
 							<td><input type="text" value="<?=$infoSeparator[0];?>" class="regular-text" name="infoSeparator[0]" style='width: 90px;' /><input type="text" value="<?=$infoSeparator[1];?>" class="regular-text" name="infoSeparator[1]" style='width: 50px;' /><input type="text" value="<?=$infoSeparator[2];?>" class="regular-text" name="infoSeparator[2]" style='width: 50px;' /><input type="text" value="<?=$infoSeparator[3];?>" class="regular-text" name="infoSeparator[3]" style='width: 90px;' /></td>
 						</tr>
 					</table>
@@ -134,7 +134,7 @@
 						?><tr id="infoLink<?=$i;?>">
 							<td><input type="text" value="<?=$name;?>" class="regular-text" name="infoLinksName[<?=$i;?>]" style='width: 293px;' /></td>
 							<td><input type="text" value="<?=$field;?>" class="regular-text" name="infoLinksField[<?=$i;?>]" style='width: 293px;' /></td>
-							<td><a onclick="removeLine('infoLink<?=$i;?>');" class="add-new-h2"><? _e('entfernen', 'post-index'); ?></a></td>
+							<td><a onclick="removeLine('infoLink<?=$i;?>');" class="add-new-h2"><? _e('Remove', 'post-index'); ?></a></td>
 						</tr><?php
 									$i++;
 								}
@@ -142,7 +142,7 @@
 					?></tbody><tfoot>
 					<tr>
 						<td>
-						<p><a id="addInfoLink" onclick="addInfoLink('infoLinks', <?=$i;?>);" class="add-new-h2"><? _e('hinzufuegen', 'post-index'); ?></a></p>
+						<p><a id="addInfoLink" onclick="addInfoLink('infoLinks', <?=$i;?>);" class="add-new-h2"><? _e('Add', 'post-index'); ?></a></p>
 						</td>
 					</tr>
 					</tfoot></table>
@@ -190,7 +190,7 @@
 							newRemoveButtonLink.setAttribute('class', 'add-new-h2');
 							newRemoveButtonLink.setAttribute('onclick', 'removeLine(\'infoLink' + lineId + '\');');
 							
-							var buttonName = document.createTextNode('<? _e('entfernen', 'post-index'); ?>');
+							var buttonName = document.createTextNode('<? _e('Remove', 'post-index'); ?>');
 							newRemoveButtonLink.appendChild(buttonName);
 							
 							newRemoveButtonTD.appendChild(newRemoveButtonLink);
@@ -202,12 +202,12 @@
 						}
 					</script>
 					<p class="submit">
-						<input type="submit" class="button-primary" value="<? _e('Speichern', 'post-index'); ?>" name="submit" />
+						<input type="submit" class="button-primary" value="<? _e('Save Changes', 'post-index'); ?>" name="submit" />
 					</p>
 				</form>
 				
 				<div id="icon-edit-pages" class="icon32 icon32-posts-post"><br /></div>
-				<a name="preview"><h2><? _e('Vorschau', 'post-index'); ?></h2></a>
+				<a name="preview"><h2><? _e('Preview', 'post-index'); ?></h2></a>
 				<br />
 				<?php
 					if(!empty($infoLinks)) {
@@ -251,10 +251,10 @@
 		}
 		
 		public function loadDefaults() {
-			$settings['defaultCategory'] = __('Allgemein', 'post-index');
-			$settings['infoSeparator'] = array(__('au&szlig;erdem bei ', 'post-index'), ', ', ' ' . __('und', 'post-index') . ' ', '');
-			$settings['postLabel'] = array('keinen Artikel', 'einen Artikel', ' ' . __('Artikel', 'post-index'));
-			$settings['pageDescription'] = __('Auf diesem Blog findest Du bisher ${PostCount}. Viel Spass beim St&ouml;bern!', 'post-index');
+			$settings['defaultCategory'] = __('General', 'post-index');
+			$settings['infoSeparator'] = array(__('also at ', 'post-index'), ', ', ' ' . __('und', 'post-index') . ' ', '');
+			$settings['postLabel'] = array('no post', 'one post', ' ' . __('posts', 'post-index'));
+			$settings['pageDescription'] = __('You will find ${PostCount} in the category ${Category} at this blog. Have fun browsing!', 'post-index');
 			$settings['infoLinks'] = array ( 'Amazon' => 'url_amazon' );
 			
 			$this->settings = $settings;
