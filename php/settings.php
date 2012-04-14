@@ -255,12 +255,10 @@
 			
 			/* translators: The first part of the additional links sentence. Please be aware of any blanks. */
 			$first = __('also at ', 'post-index');
-			/* translators: Repeated separator of the additional links sentence. Please be aware  of any blanks. */
-			$next = __(', ', 'post-index');
+			$next = ', ';
 			/* translators: Last separator of the additional links sentence. Please be aware of any blanks. */
 			$last = __(' and ', 'post-index');
-			/* translators: Final part of the additional links sentence. Please be aware of any blanks. */
-			$end = __('!', 'post-index');
+			$end = '';
 			
 			$settings['infoSeparator'] = array($first, $next, $last, $end);
 			$settings['postLabel'] = array(__('no post', 'post-index'), __('one post', 'post-index'), ' ' . __('posts', 'post-index'));
