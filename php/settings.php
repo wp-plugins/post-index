@@ -254,7 +254,7 @@
 			$settings['defaultCategory'] = __('General', 'post-index');
 			$settings['infoSeparator'] = array(__('also at ', 'post-index'), ', ', ' ' . __('und', 'post-index') . ' ', '');
 			$settings['postLabel'] = array('no post', 'one post', ' ' . __('posts', 'post-index'));
-			$settings['pageDescription'] = __('You will find ${PostCount} in the category ${Category} at this blog. Have fun browsing!', 'post-index');
+			$settings['pageDescription'] = __('You will find ${PostCount} in the category ${Category} on this blog.', 'post-index');
 			$settings['infoLinks'] = array ( 'Amazon' => 'url_amazon' );
 			
 			$this->settings = $settings;

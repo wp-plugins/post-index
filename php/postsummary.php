@@ -5,7 +5,7 @@ class PostSummary {
 	private $pageDescription;
 	private $defaultCategory;
 	private $infoSeparator;
-	
+	private $category;
 	private $characterTable;
 	
 	private $items;
@@ -54,8 +54,9 @@ class PostSummary {
 		return $this->postLabel[0];
 	}
 	
-	function parse($category_name) {	
-		query_posts( array ( 'category_name' => empty($category_name) ? $this->defaultCategory : $category_name,
+	function parse($category_name) {
+		$this->category = empty($category_name) ? $this->defaultCategory : $category_name;	
+		query_posts( array ( 'category_name' => $this->category,
 		                     'orderby' => 'title',
 		                     'order' => 'ASC',
 		                     'posts_per_page' => -1
@@ -126,7 +127,13 @@ class PostSummary {
 	
 	function printOut() 
 	{
-		echo str_replace('${PostCount}', $this->getPostLabel($this->itemCount), $this->pageDescription);
+		echo str_replace( '${Category}'
+						, $this->category
+						, str_replace( '${PostCount}'
+									 , $this->getPostLabel($this->itemCount)
+									 , $this->pageDescription
+									 )
+						);
 		
 		if(is_null($this->items) || empty($this->items))
 			return;
