@@ -1,11 +1,27 @@
 <?php
 /*
- Plugin Name: Post Index
- Plugin URI: http://wordpress.org/extend/plugins/post-index/
- Description: This plugin summarises all found blog posts added to a specific category and lists them alphabetically. Additional custom fields could be used to display links to other pages or additional information to a post.
- Version: 0.4
- Author: Thomas A. Hirsch
- Author URI: http://www.thirsch.de/
+	Plugin Name: Post Index
+	Plugin URI: http://wordpress.org/extend/plugins/post-index/
+	Description: This plugin summarises all found blog posts added to a specific category and lists them alphabetically. Additional custom fields could be used to display links to other pages or additional information to a post.
+	Version: 0.5
+	Author: Thomas A. Hirsch
+	Author URI: http://www.thirsch.de/
+	Last Updated: 2012-04-14
+ 	License: GPLv2 or later
+
+	This program is free software; you can redistribute it and/or
+	modify it under the terms of the GNU General Public License
+	as published by the Free Software Foundation; either version 2
+	of the License, or (at your option) any later version.
+	
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with this program; if not, write to the Free Software
+	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
 define('POST_INDEX_PLUGIN_NAME', 'post-index');
