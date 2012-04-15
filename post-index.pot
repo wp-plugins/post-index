@@ -111,7 +111,7 @@ msgid "Preview"
 msgstr ""
 
 #: php/settings.php:254
-msgid "General"
+msgid "Uncategorized"
 msgstr ""
 
 #. translators: The first part of the additional links sentence. Please be

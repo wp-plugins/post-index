@@ -12,7 +12,7 @@
 			$this->pluginLabel = $pluginLabel;
 			$this->basename = $basename;
 			$this->optionName = $pluginName . '-option';
-			
+						
 			$this->load();
 			$this->addHooks();
 		}
@@ -44,7 +44,9 @@
 		}
 
 		function CreateMenu() {
+
 			add_options_page($this->pluginLabel, $this->pluginLabel, 10, $this->pluginName, array($this, 'OptionsPage'));
+
 		}	
 		
 		private function buildInfoLinks($nameList, $fieldList) {
@@ -67,9 +69,11 @@
 			return $infoLinks;
 		}
 		
+
 		function OptionsPage(){
 			global $pb_PluginName;
 			
+
 			if(isset($_POST['updateSettings'])) {
 				$settings['defaultCategory'] = $_POST['defaultCategory'];
 				$settings['infoSeparator'] = $_POST['infoSeparator'];
@@ -83,12 +87,16 @@
 				$this->save();
 			
 				echo "<div id='message' class='updated' style='width: 505px;'><p><b>" . __('Settings saved.', 'post-index') . "</b></p></div>";
+
 			} 
 		
 			extract($this->settings);
 
+
+
 			?><div class="wrap">
 			<div id="icon-options-general" class="icon32"><br /></div>
+
 				<h2><? printf(__('%s Settings', 'post-index'), $this->pluginLabel); ?></h2>
 
 				<form method="post" action="options-general.php?page=<?=$this->pluginName;?>">
@@ -96,9 +104,13 @@
 					<h3><? _e('General settings', 'post-index'); ?></h3>
 					<p><? _e('Please define general settings for the plugin.', 'post-index'); ?></p>
 
+
 					<table class="form-table">
+
 						<tr>
+
 							<th><? _e('Default category', 'post-index'); ?></th>
+
 							<td><input type="text" value="<?php echo($defaultCategory); ?>" class="regular-text" name="defaultCategory" style='width: 293px;' /></td>
 						</tr>   
 						<tr>
@@ -106,7 +118,9 @@
 							<td><textarea class="regular-text" name="pageDescription" style='width: 293px;'><?php echo($pageDescription); ?></textarea></td>
 						</tr>
 						<tr>
+
 							<th><? _e('Post label', 'post-index'); ?><br /><sub><? _e('(for none, one and many posts)', 'post-index');?></sub></th>
+
 							<td><input type="text" value="<?php echo($postLabel[0]); ?>" class="regular-text" name="postLabel[0]" style='width: 90px;' /><input type="text" value="<?php echo($postLabel[1]); ?>" class="regular-text" name="postLabel[1]" style='width: 90px;' /><input type="text" value="<?php echo($postLabel[2]); ?>" class="regular-text" name="postLabel[2]" style='width: 90px;' /></td>
 						</tr>
 					</table>
@@ -114,9 +128,13 @@
 					<h3><? _e('Additional links', 'post-index');?></h3>
 					<p><? printf(__('Additional links can be added via custom fields. The sentence that is displayed below each link in the index can be build with the following text parts. Define the custom fields for the additional links with the fields at the end of this section and use them directly in your post. You can display a %s at the end of this page.', 'post-index'), '<a href="#preview">' . __('preview', 'post-index') . '</a>'); ?></p>
 
+
 					<table class="form-table">
+
 						<tr>
+
 							<th><? _e('Sentence', 'post-index');?><br /><sub><? _e('(First part, repeated separator, last separator, last part)', 'post-index'); ?></sub></th>
+
 							<td><input type="text" value="<?=$infoSeparator[0];?>" class="regular-text" name="infoSeparator[0]" style='width: 90px;' /><input type="text" value="<?=$infoSeparator[1];?>" class="regular-text" name="infoSeparator[1]" style='width: 50px;' /><input type="text" value="<?=$infoSeparator[2];?>" class="regular-text" name="infoSeparator[2]" style='width: 50px;' /><input type="text" value="<?=$infoSeparator[3];?>" class="regular-text" name="infoSeparator[3]" style='width: 90px;' /></td>
 						</tr>
 					</table>
@@ -132,6 +150,7 @@
 							if(!empty($infoLinks)) {							
 								foreach($infoLinks as $name => $field) {
 						?><tr id="infoLink<?=$i;?>">
+
 							<td><input type="text" value="<?=$name;?>" class="regular-text" name="infoLinksName[<?=$i;?>]" style='width: 293px;' /></td>
 							<td><input type="text" value="<?=$field;?>" class="regular-text" name="infoLinksField[<?=$i;?>]" style='width: 293px;' /></td>
 							<td><a onclick="removeLine('infoLink<?=$i;?>');" class="add-new-h2"><? _e('Remove', 'post-index'); ?></a></td>
@@ -221,6 +240,7 @@
 					}
 				?>
 			</div><?php
+
 		}
 		
 		private function getSeparator($current, $max, $infoSeparator) 
@@ -251,7 +271,7 @@
 		}
 		
 		public function loadDefaults() {
-			$settings['defaultCategory'] = __('General', 'post-index');
+			$settings['defaultCategory'] = __('Uncategorized', 'post-index');
 			
 			/* translators: The first part of the additional links sentence. Please be aware of any blanks. */
 			$first = __('also at ', 'post-index');
@@ -268,4 +288,5 @@
 			$this->settings = $settings;
 		}
 	}	
+
 ?>

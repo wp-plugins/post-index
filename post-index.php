@@ -31,15 +31,16 @@ define('POST_INDEX_PLUGIN_OPTIONS', POST_INDEX_PLUGIN_PREFIX . 'option');
 define('POST_INDEX_PLUGIN_BASENAME', plugin_basename(__FILE__));
 define('POST_INDEX_PLUGIN_LABEL', 'Post Index');
 
-include_once 'php/settings.php';
-$postIndexPluginSettings = new PostIndexSettings( POST_INDEX_PLUGIN_NAME
-												, POST_INDEX_PLUGIN_LABEL
-												, POST_INDEX_PLUGIN_BASENAME
-												);
 
 function post_index_init() {
 	$plugin_dir = basename(dirname(__FILE__));
 	load_plugin_textdomain( POST_INDEX_PLUGIN_NAME, false, $plugin_dir );
+	
+	include_once 'php/settings.php';
+	$postIndexPluginSettings = new PostIndexSettings( POST_INDEX_PLUGIN_NAME
+													, POST_INDEX_PLUGIN_LABEL
+													, POST_INDEX_PLUGIN_BASENAME
+													);
 }
 add_action('init', 'post_index_init');
 

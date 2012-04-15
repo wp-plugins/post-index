@@ -115,7 +115,7 @@ msgid "Preview"
 msgstr "Vorschau"
 
 #: php/settings.php:254
-msgid "General"
+msgid "Uncategorized"
 msgstr "Allgemein"
 
 #. translators: The first part of the additional links sentence. Please be
@@ -140,7 +140,7 @@ msgstr "einen Beitrag"
 
 #: php/settings.php:264
 msgid "posts"
-msgstr "Beitr%auml;ge"
+msgstr "Beitr&auml;ge"
 
 #: php/settings.php:265
 msgid "You will find ${PostCount} in the category ${Category} on this blog."
