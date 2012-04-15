@@ -4,7 +4,7 @@
       
       public function __construct($pluginSettings) {
          add_action('add_meta_boxes', array($this, 'addCustomBox'));
-         add_action( 'save_post', array($this, 'savePostData') );
+         add_action('save_post', array($this, 'savePostData'));
          
          $this->pluginSettings = $pluginSettings;
       }

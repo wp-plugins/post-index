@@ -13,6 +13,8 @@
 			$this->basename = $basename;
 			$this->optionName = $pluginName . '-option';
 						
+			delete_option($this->optionName);
+						
 			$this->load();
 			$this->addHooks();
 		}
@@ -75,14 +77,15 @@
 			
 
 			if(isset($_POST['updateSettings'])) {
+				$_POST = stripslashes_deep($_POST);
 				$settings['defaultCategory'] = $_POST['defaultCategory'];
 				$settings['infoSeparator'] = $_POST['infoSeparator'];
 				$settings['postLabel'] = $_POST['postLabel'];
-				$settings['pageDescription'] = $_POST['pageDescription'];
+				$settings['pageDescription'] = esc_html($_POST['pageDescription']);
 				
 				// parse infoLinks
 				$settings['infoLinks'] = $this->buildInfoLinks($_POST['infoLinksName'], $_POST['infoLinksField']);
-				
+			
 				$this->settings = $settings;
 				$this->save();
 			
@@ -101,27 +104,27 @@
 
 				<form method="post" action="options-general.php?page=<?=$this->pluginName;?>">
 					<input type="hidden" name="updateSettings" value="1" />
-					<h3><? _e('General settings', 'post-index'); ?></h3>
-					<p><? _e('Please define general settings for the plugin.', 'post-index'); ?></p>
+					<h3><?php _e('General settings', 'post-index'); ?></h3>
+					<p><?php _e('Please define general settings for the plugin.', 'post-index'); ?></p>
 
 
 					<table class="form-table">
 
 						<tr>
 
-							<th><? _e('Default category', 'post-index'); ?></th>
+							<th><?php _e('Default category', 'post-index'); ?></th>
 
-							<td><input type="text" value="<?php echo($defaultCategory); ?>" class="regular-text" name="defaultCategory" style='width: 293px;' /></td>
+							<td><input type="text" value="<?php echo(esc_attr($defaultCategory)); ?>" class="regular-text" name="defaultCategory" style='width: 293px;' /></td>
 						</tr>   
 						<tr>
-							<th><? _e('Page description', 'post-index'); ?></th>
-							<td><textarea class="regular-text" name="pageDescription" style='width: 293px;'><?php echo($pageDescription); ?></textarea></td>
+							<th><?php _e('Page description', 'post-index'); ?></th>
+							<td><textarea class="regular-text" name="pageDescription" style='width: 293px;'><?php echo esc_textarea($pageDescription); ?></textarea></td>
 						</tr>
 						<tr>
 
-							<th><? _e('Post label', 'post-index'); ?><br /><sub><? _e('(for none, one and many posts)', 'post-index');?></sub></th>
+							<th><?php _e('Post label', 'post-index'); ?><br /><sub><? _e('(for none, one and many posts)', 'post-index');?></sub></th>
 
-							<td><input type="text" value="<?php echo($postLabel[0]); ?>" class="regular-text" name="postLabel[0]" style='width: 90px;' /><input type="text" value="<?php echo($postLabel[1]); ?>" class="regular-text" name="postLabel[1]" style='width: 90px;' /><input type="text" value="<?php echo($postLabel[2]); ?>" class="regular-text" name="postLabel[2]" style='width: 90px;' /></td>
+							<td><input type="text" value="<?=esc_attr($postLabel[0]); ?>" class="regular-text" name="postLabel[0]" style='width: 90px;' /><input type="text" value="<?=esc_attr($postLabel[1]); ?>" class="regular-text" name="postLabel[1]" style='width: 90px;' /><input type="text" value="<?=esc_attr($postLabel[2]); ?>" class="regular-text" name="postLabel[2]" style='width: 90px;' /></td>
 						</tr>
 					</table>
 				
@@ -135,7 +138,7 @@
 
 							<th><? _e('Sentence', 'post-index');?><br /><sub><? _e('(First part, repeated separator, last separator, last part)', 'post-index'); ?></sub></th>
 
-							<td><input type="text" value="<?=$infoSeparator[0];?>" class="regular-text" name="infoSeparator[0]" style='width: 90px;' /><input type="text" value="<?=$infoSeparator[1];?>" class="regular-text" name="infoSeparator[1]" style='width: 50px;' /><input type="text" value="<?=$infoSeparator[2];?>" class="regular-text" name="infoSeparator[2]" style='width: 50px;' /><input type="text" value="<?=$infoSeparator[3];?>" class="regular-text" name="infoSeparator[3]" style='width: 90px;' /></td>
+							<td><input type="text" value="<?=esc_attr($infoSeparator[0]);?>" class="regular-text" name="infoSeparator[0]" style='width: 90px;' /><input type="text" value="<?=esc_attr($infoSeparator[1]);?>" class="regular-text" name="infoSeparator[1]" style='width: 50px;' /><input type="text" value="<?=esc_attr($infoSeparator[2]);?>" class="regular-text" name="infoSeparator[2]" style='width: 50px;' /><input type="text" value="<?=esc_attr($infoSeparator[3]);?>" class="regular-text" name="infoSeparator[3]" style='width: 90px;' /></td>
 						</tr>
 					</table>
 					<br />
@@ -151,8 +154,8 @@
 								foreach($infoLinks as $name => $field) {
 						?><tr id="infoLink<?=$i;?>">
 
-							<td><input type="text" value="<?=$name;?>" class="regular-text" name="infoLinksName[<?=$i;?>]" style='width: 293px;' /></td>
-							<td><input type="text" value="<?=$field;?>" class="regular-text" name="infoLinksField[<?=$i;?>]" style='width: 293px;' /></td>
+							<td><input type="text" value="<?=esc_attr($name);?>" class="regular-text" name="infoLinksName[<?=$i;?>]" style='width: 293px;' /></td>
+							<td><input type="text" value="<?=esc_attr($field);?>" class="regular-text" name="infoLinksField[<?=$i;?>]" style='width: 293px;' /></td>
 							<td><a onclick="removeLine('infoLink<?=$i;?>');" class="add-new-h2"><? _e('Remove', 'post-index'); ?></a></td>
 						</tr><?php
 									$i++;
@@ -221,7 +224,7 @@
 						}
 					</script>
 					<p class="submit">
-						<input type="submit" class="button-primary" value="<? _e('Save Changes', 'post-index'); ?>" name="submit" />
+						<input type="submit" class="button-primary" value="<? esc_attr_e('Save Changes', 'post-index'); ?>" name="submit" />
 					</p>
 				</form>
 				

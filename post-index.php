@@ -41,73 +41,73 @@ function post_index_init() {
 													, POST_INDEX_PLUGIN_LABEL
 													, POST_INDEX_PLUGIN_BASENAME
 													);
-}
-add_action('init', 'post_index_init');
 
-/*
- * Include the index builder.
- */
-if(!is_admin()) {
-	include_once 'php/postsummary.php';
-	
-	function postSummaryFilter($data) {
-		global $postIndexPluginSettings;
-	
-		$ps = new PostSummary($postIndexPluginSettings);
+	/*
+	 * Include the index builder.
+	 */
+	if(!is_admin()) {
+		include_once 'php/postsummary.php';
 		
-		$pattern = '/\<\!\-\-\s*post-index\s*(?:\(\'?([^\']*)\'?\))?\s*\-\-\>/';
-		if(preg_match_all($pattern, $data, $matches))
-		{
-			for($i = 0; $i < count($matches[0]); $i++) {
-				$category_name = $matches[1][$i];
-				$replace_pattern = '/' . preg_quote($matches[0][$i]) . '/';
-	
-				ob_start();	
-				$ps->parse($category_name);
-				$ps->printOut();
-	
-				$content = ob_get_contents();
-				
-				ob_end_clean();
-											
-				$data = preg_replace($replace_pattern, $content, $data);	
+		function postSummaryFilter($data) {
+			global $postIndexPluginSettings;
+		
+			$ps = new PostSummary($postIndexPluginSettings);
+			
+			$pattern = '/\<\!\-\-\s*post-index\s*(?:\(\'?([^\']*)\'?\))?\s*\-\-\>/';
+			if(preg_match_all($pattern, $data, $matches))
+			{
+				for($i = 0; $i < count($matches[0]); $i++) {
+					$category_name = $matches[1][$i];
+					$replace_pattern = '/' . preg_quote($matches[0][$i]) . '/';
+		
+					ob_start();	
+					$ps->parse($category_name);
+					$ps->printOut();
+		
+					$content = ob_get_contents();
+					
+					ob_end_clean();
+												
+					$data = preg_replace($replace_pattern, $content, $data);	
+				}
 			}
+			
+			return $data;
 		}
 		
-		return $data;
+		add_filter('the_content', 'postSummaryFilter');
+		
+		/**
+		 * ShortCode API hook to include the post index into your post.
+		 */
+		function post_index_func( $atts ) {
+			global $postIndexPluginSettings;
+			extract( shortcode_atts( array(
+				'category' => $postIndexPluginSettings->defaultCategory), $atts ) );
+			
+			$ps = new PostSummary($postIndexPluginSettings);
+		
+			ob_start();	
+			$ps->parse($category);
+			$ps->printOut();
+		
+			$content = ob_get_contents();
+			ob_end_clean();
+			
+			return $content;
+		}
+		
+		add_shortcode('post_index', 'post_index_func');
 	}
 	
-	add_filter('the_content', 'postSummaryFilter');
-	
-	/**
-	 * ShortCode API hook to include the post index into your post.
+	/*
+	 * Include the meta box for the post admin interface, but only in the admin area.
 	 */
-	function post_index_func( $atts ) {
-		global $postIndexPluginSettings;
-		extract( shortcode_atts( array(
-			'category' => $postIndexPluginSettings->defaultCategory), $atts ) );
-		
-		$ps = new PostSummary($postIndexPluginSettings);
-	
-		ob_start();	
-		$ps->parse($category);
-		$ps->printOut();
-	
-		$content = ob_get_contents();
-		ob_end_clean();
-		
-		return $content;
+	if(is_admin()) {
+	   include_once 'php/postadmin.php';
+	   new PostAdminWidget($postIndexPluginSettings);
 	}
-	
-	add_shortcode('post_index', 'post_index_func');
 }
-
-/*
- * Include the meta box for the post admin interface, but only in the admin area.
- */
-if(is_admin()) {
-   include_once 'php/postadmin.php';
-   new PostAdminWidget($postIndexPluginSettings);
-}
+add_action('init', 'post_index_init');
 
 ?>
