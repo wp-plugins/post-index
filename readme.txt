@@ -62,6 +62,7 @@ The plugin uses shortcodes now. Please change your page or post and replace `<!-
 
 = 0.6 =
 * Translated the plugin to English and added a German translation file.
+* Small and capital letters are now treated as one letter
 
 = 0.5 =
 * Using shortcodes instead of content parsing.
