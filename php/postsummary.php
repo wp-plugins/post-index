@@ -81,7 +81,7 @@ class PostSummary {
 			$decoded_title = str_replace($this->characterTable['post'], $this->characterTable['index'], $decoded_title);
 			$decoded_title = str_replace($this->characterTable['in'], $this->characterTable['index'], $decoded_title);
 			
-			$firstLetter = substr($decoded_title, 0, 1);
+			$firstLetter = strtoupper(substr($decoded_title, 0, 1));
 						        
 			$linkList = array();
 			
