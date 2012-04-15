@@ -13,8 +13,6 @@
 			$this->basename = $basename;
 			$this->optionName = $pluginName . '-option';
 						
-			delete_option($this->optionName);
-						
 			$this->load();
 			$this->addHooks();
 		}
