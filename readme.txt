@@ -4,7 +4,7 @@ Tags: post, index, overview, list, reference
 Author URI: http://www.thirsch.de/
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=232JYLEQYMWG2
 Requires at least: 2.7
-Tested up to: 3.3.1
+Tested up to: 3.3.2
 Stable tag: 0.5
 License: GPLv2 or later
 
