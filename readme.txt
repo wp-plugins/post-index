@@ -54,6 +54,7 @@ Please use `[post_index]`, supported since Version 0.5, to avoid that!
 = How to change the grouping? =
 
 The following groupBy clauses to be used in the shortcode `[post_index groupby=""]` are supported:
+
 * firstLetter - Groups the posts according to their first letter
 * subcategory - Uses the subcategory of each post as its group key.
 
