@@ -21,20 +21,32 @@
 			if(!is_admin()) return;
 			
 			add_action('admin_menu', array($this, 'CreateMenu'), 10);
+			add_action('admin_enqueue_scripts', array($this, 'enqueueJavaScript'));
 			global $wp_version;
 			if ( version_compare($wp_version, '2.7', '>=' ) ) {
-				add_filter( 'plugin_action_links', array($this, 'AddFilterPluginActionLinks'), 10, 2 );
+				add_filter( 'plugin_action_links', array($this, 'addFilterPluginActionLinks'), 10, 2 );
 			}
 		}
 		
-		function AddFilterPluginActionLinks( $links, $file ) {
+		function enqueueJavaScript($hook) {
+			if('settings_page_'.POST_INDEX_PLUGIN_NAME != $hook)
+				return;
+	
+		 	wp_enqueue_script( 'post_plugin_settings_script', plugins_url('/js/settings.js', dirname(__FILE__)));
+		 	wp_localize_script( 'post_plugin_settings_script'
+		 					  , 'objectI18n'
+		 					  , array( 'removeButton' => __('Remove', 'post-index')	)
+		 					  );
+		}
+		
+		function addFilterPluginActionLinks( $links, $file ) {
 			if ( $file == $this->basename ) {
-				$links[] = '<a href="'.$this->GetPluginOptionsURL().'">' . __('Settings') . '</a>';
+				$links[] = '<a href="'.$this->getPluginOptionsURL().'">' . __('Settings') . '</a>';
 			}
 			return $links;
 		}
 		
-		function GetPluginOptionsURL() {
+		function getPluginOptionsURL() {
 			if (function_exists('admin_url')) {	// since WP 2.6.0
 				$adminurl = trailingslashit(admin_url());			
 			} else {
@@ -69,18 +81,22 @@
 			return $infoLinks;
 		}
 		
+		function loadJavaScript() {
+			add_action('wp_enqueue_scripts', 'my_scripts_method');
+		}
 
 		function OptionsPage(){
 			global $pb_PluginName;
 			
-
+			$this->loadJavaScript();
+			
 			if(isset($_POST['updateSettings'])) {
 				$_POST = stripslashes_deep($_POST);
 				$settings['defaultCategory'] = $_POST['defaultCategory'];
 				$settings['infoSeparator'] = $_POST['infoSeparator'];
 				$settings['postLabel'] = $_POST['postLabel'];
 				$settings['pageDescription'] = esc_html($_POST['pageDescription']);
-				
+			
 				// parse infoLinks
 				$settings['infoLinks'] = $this->buildInfoLinks($_POST['infoLinksName'], $_POST['infoLinksField']);
 			
@@ -92,9 +108,7 @@
 			} 
 		
 			extract($this->settings);
-
-
-
+			
 			?><div class="wrap">
 			<div id="icon-options-general" class="icon32"><br /></div>
 
@@ -113,15 +127,13 @@
 							<th><?php _e('Default category', 'post-index'); ?></th>
 
 							<td><input type="text" value="<?php echo(esc_attr($defaultCategory)); ?>" class="regular-text" name="defaultCategory" style='width: 293px;' /></td>
-						</tr>   
+						</tr>
 						<tr>
 							<th><?php _e('Page description', 'post-index'); ?></th>
 							<td><textarea class="regular-text" name="pageDescription" style='width: 293px;'><?php echo esc_textarea($pageDescription); ?></textarea></td>
 						</tr>
 						<tr>
-
 							<th><?php _e('Post label', 'post-index'); ?><br /><sub><? _e('(for none, one and many posts)', 'post-index');?></sub></th>
-
 							<td><input type="text" value="<?=esc_attr($postLabel[0]); ?>" class="regular-text" name="postLabel[0]" style='width: 90px;' /><input type="text" value="<?=esc_attr($postLabel[1]); ?>" class="regular-text" name="postLabel[1]" style='width: 90px;' /><input type="text" value="<?=esc_attr($postLabel[2]); ?>" class="regular-text" name="postLabel[2]" style='width: 90px;' /></td>
 						</tr>
 					</table>
@@ -166,61 +178,6 @@
 						</td>
 					</tr>
 					</tfoot></table>
-					<!-- move to a separate script and load it using the wp methods! -->
-					<script language="javascript">
-						function removeLine(childElement){
-							if (document.getElementById(childElement)) {
-								var child = document.getElementById(childElement);
-								var parent = child.parentNode;
-								
-								parent.removeChild(child);
-							}
-							return false;
-						}
-						
-						function addInfoLink(parentElement, lineId) {
-							var parent = document.getElementById(parentElement);
-							var newLine = document.createElement('tr');
-							newLine.setAttribute('id', 'infoLink' + lineId);
-							
-							var newNameTD = document.createElement('td');
-							
-							var newNameInput = document.createElement('input');
-							newNameInput.setAttribute('type', 'text');
-							newNameInput.setAttribute('class', 'regular-text');
-							newNameInput.setAttribute('name', 'infoLinksName[' + lineId + ']');
-							newNameInput.setAttribute('style', 'width: 293px;');
-							
-							newNameTD.appendChild(newNameInput);
-							newLine.appendChild(newNameTD);
-							
-							var newFieldTD = document.createElement('td');
-							
-							var newFieldInput = document.createElement('input');
-							newFieldInput.setAttribute('type', 'text');
-							newFieldInput.setAttribute('class', 'regular-text');
-							newFieldInput.setAttribute('name', 'infoLinksField[' + lineId + ']');
-							newFieldInput.setAttribute('style', 'width: 293px;');
-							
-							newFieldTD.appendChild(newFieldInput);
-							newLine.appendChild(newFieldTD);
-							
-							var newRemoveButtonTD = document.createElement('td');
-							var newRemoveButtonLink = document.createElement('a');
-							newRemoveButtonLink.setAttribute('class', 'add-new-h2');
-							newRemoveButtonLink.setAttribute('onclick', 'removeLine(\'infoLink' + lineId + '\');');
-							
-							var buttonName = document.createTextNode('<? _e('Remove', 'post-index'); ?>');
-							newRemoveButtonLink.appendChild(buttonName);
-							
-							newRemoveButtonTD.appendChild(newRemoveButtonLink);
-							newLine.appendChild(newRemoveButtonTD);
-							
-							parent.appendChild(newLine);
-							
-							document.getElementById('addInfoLink').setAttribute('onClick', 'addInfoLink(\'infoLinks\', ' + (lineId+1) + ');');
-						}
-					</script>
 					<p class="submit">
 						<input type="submit" class="button-primary" value="<? esc_attr_e('Save Changes', 'post-index'); ?>" name="submit" />
 					</p>
@@ -285,6 +242,7 @@
 			$settings['postLabel'] = array(__('no post', 'post-index'), __('one post', 'post-index'), ' ' . __('posts', 'post-index'));
 			$settings['pageDescription'] = __('You will find ${PostCount} in the category ${Category} on this blog.', 'post-index');
 			$settings['infoLinks'] = array ( 'Amazon' => 'url_amazon' );
+			$settings['groupBy'] = 'Subcategory';
 			
 			$this->settings = $settings;
 		}

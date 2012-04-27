@@ -29,12 +29,22 @@ define('POST_INDEX_PLUGIN_NAME', 'post-index');
 define('POST_INDEX_PLUGIN_PREFIX', POST_INDEX_PLUGIN_NAME . '_');
 define('POST_INDEX_PLUGIN_OPTIONS', POST_INDEX_PLUGIN_PREFIX . 'option');
 define('POST_INDEX_PLUGIN_BASENAME', plugin_basename(__FILE__));
+define('POST_INDEX_PLUGIN_DIR', dirname(POST_INDEX_PLUGIN_BASENAME));
 define('POST_INDEX_PLUGIN_LABEL', 'Post Index');
 
+/*
+class PostIndexPlugin {
+	private function _init_text_domain() {
+		load_plugin_textdomain( POST_INDEX_PLUGIN_NAME, false, POST_INDEX_PLUGIN_DIR );
+	}
+}
+*/
+
+$postIndexPluginSettings = NULL;
 
 function post_index_init() {
-	$plugin_dir = basename(dirname(__FILE__));
-	load_plugin_textdomain( POST_INDEX_PLUGIN_NAME, false, $plugin_dir );
+	global $postIndexPluginSettings;
+	load_plugin_textdomain( POST_INDEX_PLUGIN_NAME, false, POST_INDEX_PLUGIN_DIR );
 	
 	include_once 'php/settings.php';
 	$postIndexPluginSettings = new PostIndexSettings( POST_INDEX_PLUGIN_NAME
@@ -82,13 +92,18 @@ function post_index_init() {
 		 */
 		function post_index_func( $atts ) {
 			global $postIndexPluginSettings;
-			extract( shortcode_atts( array(
-				'category' => $postIndexPluginSettings->defaultCategory), $atts ) );
+			
+			extract( shortcode_atts( array ( 'category' => $postIndexPluginSettings->settings['defaultCategory']
+                                           , 'groupby' => 'firstLetter'
+                                           )
+                                   , $atts 
+                                   ) 
+                   );
 			
 			$ps = new PostSummary($postIndexPluginSettings);
 		
 			ob_start();	
-			$ps->parse($category);
+			$ps->parse($category, $groupby);
 			$ps->printOut();
 		
 			$content = ob_get_contents();

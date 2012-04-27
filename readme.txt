@@ -17,7 +17,7 @@ Build an index of all posts found for a specific category and display it in any 
 
 ***
 
-This plugin summarises all found blog posts added to a specific category and lists them alphabetically. Additional custom fields could be used to display links to other pages or additional information to a post.
+This plugin summarises all found blog posts added to a specific category and lists them alphabetically or grouped by the used subcategory. Additional custom fields could be used to display links to other pages or additional information to a post.
 
 What comes next?
 
@@ -51,6 +51,12 @@ Did you enter the tag `<!--post-index-->` in the Visual or HTML mode of the edit
 
 Please use `[post_index]`, supported since Version 0.5, to avoid that!
 
+= How to change the grouping? =
+
+The following groupBy clauses to be used in the shortcode `[post_index groupby=""]` are supported:
+* firstLetter - Groups the posts according to their first letter
+* subcategory - Uses the subcategory of each post as its group key.
+
 
 == Upgrade Notice ==
 
@@ -63,6 +69,7 @@ The plugin uses shortcodes now. Please change your page or post and replace `<!-
 = 0.6 =
 * Translated the plugin to English and added a German translation file.
 * Small and capital letters are now treated as one letter
+* The index can now group by the subcategory instead of the first letter. Simply add the groupBy clause to the shortcode: `[post_index groupBy='subcategory']`
 
 = 0.5 =
 * Using shortcodes instead of content parsing.

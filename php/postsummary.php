@@ -24,7 +24,7 @@ class PostSummary {
 		$this->pageDescription = $pluginSettings->settings['pageDescription'];
 		$this->defaultCategory = $pluginSettings->settings['defaultCategory'];
 		$this->infoSeparator = $pluginSettings->settings['infoSeparator'];		
-
+		
 		$this->characterTable = array(
 			'index'	=> array('ae'    ,'Ae'    ,'oe'    ,'Oe'    ,'ue'    ,'Ue'    ,'ss'    ),
 			'raw'	=> array('ä'     ,'Ä'     ,'ö'     ,'Ö'     ,'ü'     ,'Ü'     ,'ß',       ),
@@ -54,8 +54,10 @@ class PostSummary {
 		return $this->postLabel[0];
 	}
 	
-	function parse($category_name) {
+	function parse($category_name, $groupBy) {
 		$this->category = empty($category_name) ? $this->defaultCategory : $category_name;	
+		$categoryId = get_cat_ID($this->category);
+		
 		query_posts( array ( 'category_name' => $this->category,
 		                     'orderby' => 'title',
 		                     'order' => 'ASC',
@@ -75,13 +77,7 @@ class PostSummary {
 			$title = str_replace('&#8220;', '', $title);
 			$title = str_replace('&#8221;', '', $title);
 			
-			$decoded_title = html_entity_decode($title);
-			$decoded_title = str_replace($this->characterTable['raw'], $this->characterTable['index'], $decoded_title);
-			$decoded_title = str_replace($this->characterTable['utf8'], $this->characterTable['index'], $decoded_title);
-			$decoded_title = str_replace($this->characterTable['post'], $this->characterTable['index'], $decoded_title);
-			$decoded_title = str_replace($this->characterTable['in'], $this->characterTable['index'], $decoded_title);
-			
-			$firstLetter = strtoupper(substr($decoded_title, 0, 1));
+
 						        
 			$linkList = array();
 			
@@ -97,11 +93,28 @@ class PostSummary {
 			                , 'author' => $author
 			                , 'permalink' => get_permalink()
 			                , 'linkList' => $linkList );
-			                
-			$this->items[$firstLetter][] = $curItem;
+			    
+			if($groupBy == 'subcategory') {          
+				$post_categories = get_the_category();
+				$cats = array();
+	
+				foreach($post_categories as $c){					
+					if($c->parent == $categoryId) {
+						$this->items[$c->cat_name][] = $curItem;
+					}
+				}
+			} else {	
+				$decoded_title = html_entity_decode($title);
+				$decoded_title = str_replace($this->characterTable['raw'], $this->characterTable['index'], $decoded_title);
+				$decoded_title = str_replace($this->characterTable['utf8'], $this->characterTable['index'], $decoded_title);
+				$decoded_title = str_replace($this->characterTable['post'], $this->characterTable['index'], $decoded_title);
+				$decoded_title = str_replace($this->characterTable['in'], $this->characterTable['index'], $decoded_title);
 			
+				$firstLetter = strtoupper(substr($decoded_title, 0, 1));
+				$this->items[$firstLetter][] = $curItem;
+			}
 		endwhile;
-
+		
 		// Reset Query
 		wp_reset_query();
 	}
