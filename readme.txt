@@ -67,6 +67,9 @@ The plugin uses shortcodes now. Please change your page or post and replace `<!-
 
 == Changelog ==
 
+= 0.7 =
+* Added an optional displayed group count. It can be activated in the settings of the plugin.
+
 = 0.6 =
 * Translated the plugin to English and added a German translation file.
 * Small and capital letters are now treated as one letter
