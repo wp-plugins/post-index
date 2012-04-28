@@ -24,6 +24,7 @@ class PostSummary {
 		$this->pageDescription = $pluginSettings->settings['pageDescription'];
 		$this->defaultCategory = $pluginSettings->settings['defaultCategory'];
 		$this->infoSeparator = $pluginSettings->settings['infoSeparator'];		
+		$this->displayGroupCount = $pluginSettings->settings['displayGroupCount'];
 		
 		$this->characterTable = array(
 			'index'	=> array('ae'    ,'Ae'    ,'oe'    ,'Oe'    ,'ue'    ,'Ue'    ,'ss'    ),
@@ -162,7 +163,13 @@ class PostSummary {
 		
 		foreach($this->items as $index => $books) 
 		{
-			echo '<a name="letter_' . $index .'"></a><em><strong>' . $index . '</strong></em>'."\n";
+			echo '<a name="letter_' . $index .'"></a><em><strong>' . $index . '</strong>';
+			
+			if($this->displayGroupCount == 1) {
+				echo ' (' . count($books) . ')';
+			}
+			
+			echo '</em>'."\n";
 			echo '<ul>'."\n";
 			foreach($books as $book) 
 			{
