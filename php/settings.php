@@ -96,7 +96,7 @@
 				$settings['infoSeparator'] = $_POST['infoSeparator'];
 				$settings['postLabel'] = $_POST['postLabel'];
 				$settings['pageDescription'] = esc_html($_POST['pageDescription']);
-				$settings['displayGroupCount'] = $_POST['displayGroupCount'];
+				$settings['showGroupCount'] = $_POST['showGroupCount'];
 			
 				// parse infoLinks
 				$settings['infoLinks'] = $this->buildInfoLinks($_POST['infoLinksName'], $_POST['infoLinksField']);
@@ -130,10 +130,10 @@
 							<td><input type="text" value="<?php echo(esc_attr($defaultCategory)); ?>" class="regular-text" name="defaultCategory" style='width: 293px;' /></td>
 						</tr>
 						<tr>
-							<th><?php _e('Display group count', 'post-index'); ?></th>
+							<th><?php _e('Show group count', 'post-index'); ?></th>
 							<td>
-								<input type="radio" <?php if($displayGroupCount == 1) echo 'checked="checked"'; ?> name="displayGroupCount" value="1" /> Yes 
-								<input type="radio" <?php if($displayGroupCount != 1) echo 'checked="checked"'; ?> name="displayGroupCount" value="0" /> No
+								<input type="radio" <?php if($showGroupCount == 1) echo 'checked="checked"'; ?> name="showGroupCount" value="1" /> Yes 
+								<input type="radio" <?php if($showGroupCount != 1) echo 'checked="checked"'; ?> name="showGroupCount" value="0" /> No
 							</td>
 						</tr>
 						<tr>
@@ -251,7 +251,7 @@
 			$settings['pageDescription'] = __('You will find ${PostCount} in the category ${Category} on this blog.', 'post-index');
 			$settings['infoLinks'] = array ( 'Amazon' => 'url_amazon' );
 			$settings['groupBy'] = 'Subcategory';
-			$settings['displayGroupCount'] = 1;
+			$settings['showGroupCount'] = 1;
 			
 			$this->settings = $settings;
 		}
