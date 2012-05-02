@@ -57,18 +57,24 @@ class PostSummary {
 		return $this->postLabel[0];
 	}
 	
-	function parse($category_name, $groupBy) {
-		$this->category = empty($category_name) ? $this->defaultCategory : $category_name;	
-		$categoryId = get_cat_ID($this->category);
+	function parse($category_name, $groupBy, $categoryslug = '') {
+      $category = NULL;
+      if(empty($categoryslug)) {
+         $this->category = empty($category_name) ? $this->defaultCategory : $category_name;	
+         $category = get_category(get_cat_ID($this->category));
+      } else {
+         $category = get_category_by_slug($categoryslug);
+      }
+		$categoryId = $category->term_id;
 		
-		query_posts( array ( 'category_name' => $this->category,
+		query_posts( array ( 'cat' => $categoryId,
 		                     'orderby' => 'title',
 		                     'order' => 'ASC',
 		                     'posts_per_page' => -1
 		                   )
 		           );
 		           
-   		$this->items = NULL;
+   	$this->items = NULL;
 		$this->groupBy = $groupBy;
 				
 		if($groupBy == 'subcategory') {
@@ -79,7 +85,7 @@ class PostSummary {
 				$this->itemCount[$subCat->cat_name] = 0;
 			} 
 		} else {
-			$this->itemCount = NULL;
+			$this->itemCount = 0;
 		}
            
 		while (have_posts()) : the_post();
@@ -104,15 +110,14 @@ class PostSummary {
 			                , 'permalink' => get_permalink()
 			                , 'linkList' => $linkList );
 			                
-			                
-            $decoded_title = html_entity_decode($title);
+         $decoded_title = html_entity_decode($title);
 			$decoded_title = str_replace($this->characterTable['raw'], $this->characterTable['index'], $decoded_title);
 			$decoded_title = str_replace($this->characterTable['utf8'], $this->characterTable['index'], $decoded_title);
 			$decoded_title = str_replace($this->characterTable['post'], $this->characterTable['index'], $decoded_title);
 			$decoded_title = str_replace($this->characterTable['in'], $this->characterTable['index'], $decoded_title);
 			
 			$firstLetter = strtoupper(substr($decoded_title, 0, 1));
-			    
+         
 			if($groupBy == 'subcategory') {          
 				$post_categories = get_the_category();
 				$cats = array();
@@ -160,15 +165,14 @@ class PostSummary {
 		return;
 		
 		if($this->groupBy == 'subcategory') { 
-
 			foreach($this->items as $subCategory => $item) {
 				echo '<h2>'.$subCategory.'</h2>'."\n";
 				// Parse Subcategory
-				$this->printItem($item, $this->itemCount[$subCategory], 'h3');
+				$this->printItem($item, $this->itemCount[$subCategory], $subCategory, 'h3');
 			}
 		}
 		else {
-			$this->printItem($this->items, $this->itemCount);
+			$this->printItem($this->items, $this->itemCount, $this->category);
 		}
 	}
 	
@@ -199,13 +203,13 @@ class PostSummary {
 	   return $cnt;
 	}
 	
-	function printItem($item, $itemCount, $headerTag = 'h2') {
+	function printItem($item, $itemCount, $categoryName, $headerTag = 'h2') {
 		echo '<p>';
 		$categoryId = uniqid();
 		
 		if(!empty($this->pageDescription)) {
 			echo str_replace( '${Category}'
-							, $this->category
+							, $categoryName
 							, str_replace( '${PostCount}'
 										 , $this->getPostLabel($itemCount)
 										 , $this->pageDescription
@@ -218,13 +222,18 @@ class PostSummary {
 		
 		if($itemCount > 0)
 		{
-			
 			echo '<p>' . __('Jump to', 'post-index') . ' ';
-			foreach(array_keys($item) as $index)
-			{
-				echo '<a href="#letter_' . $categoryId . '_' . $index . '">' . $index . '</a> ';
-			}
-		
+         
+         $groups = array_keys($item);
+         $countOfGroups = count($groups);
+         
+         for($i = 0; $i < $countOfGroups; $i++) {
+            echo '<a href="#letter_' . $categoryId . '_' . $groups[$i] . '">' . $groups[$i] . '</a>';
+            if($i < ($countOfGroups-1))
+               echo ',';
+            echo ' ';
+         }
+			
 			echo '</p>' . "\n";
 				
 			foreach($item as $index => $posts) 

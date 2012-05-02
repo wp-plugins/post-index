@@ -62,27 +62,36 @@ The following groupBy clauses to be used in the shortcode `[post_index groupby="
 == Upgrade Notice ==
 
 = 0.5 =
+
 The plugin uses shortcodes now. Please change your page or post and replace `<!--post-index-->` with `[post_index]`! Thanks to [Franz Wieser](http://www.wieser.at/ "Franz Wieser")
 
 
 == Changelog ==
 
 = 0.7 =
+
+* Improved: Added alphabetical subgrouping in groupBy type "subcategory"
+* Added: CategorySlug as a new filter criteria if the category name occurs more than once.
 * Added an optional displayed group count. It can be activated in the settings of the plugin.
 
 = 0.6 =
+
 * Translated the plugin to English and added a German translation file.
 * Small and capital letters are now treated as one letter
 * The index can now group by the subcategory instead of the first letter. Simply add the groupBy clause to the shortcode: `[post_index groupBy='subcategory']`
 
 = 0.5 =
+
 * Using shortcodes instead of content parsing.
 
 = 0.3 =
+
 * Parses the post-index hook and extracts the category name from it.
 
 = 0.2 =
+
 * Fixed a bug that caused the meta box to not correctly load the custom field values.
 
 = 0.1 =
+
 * First version - This version is available only German at the moment!

@@ -95,6 +95,7 @@ function post_index_init() {
 			
 			extract( shortcode_atts( array ( 'category' => $postIndexPluginSettings->settings['defaultCategory']
                                            , 'groupby' => 'firstLetter'
+                                           , 'categoryslug' => ''
                                            )
                                    , $atts 
                                    ) 
@@ -103,7 +104,7 @@ function post_index_init() {
 			$ps = new PostSummary($postIndexPluginSettings);
 		
 			ob_start();	
-			$ps->parse($category, $groupby);
+			$ps->parse($category, $groupby, $categoryslug);
 			$ps->printOut();
 		
 			$content = ob_get_contents();
