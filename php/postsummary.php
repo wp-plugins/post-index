@@ -6,19 +6,11 @@ class PostSummary {
 	private $defaultCategory;
 	private $infoSeparator;
 	private $category;
-	private $characterTable;
 	
 	private $groupBy;
 	
 	private $items;
 	private $itemCount;
-	
-	function u8e($c) {
-		return utf8_encode($c); 
-	}
-	function u8d($c) {
-		return utf8_decode($c);
-	}
 	
 	public function __construct($pluginSettings) {
 		$this->foreignLinks = $pluginSettings->settings['infoLinks'];
@@ -26,16 +18,7 @@ class PostSummary {
 		$this->pageDescription = $pluginSettings->settings['pageDescription'];
 		$this->defaultCategory = $pluginSettings->settings['defaultCategory'];
 		$this->infoSeparator = $pluginSettings->settings['infoSeparator'];		
-		$this->showGroupCount = $pluginSettings->settings['showGroupCount'];
-		
-		$this->characterTable = array(
-			'index'	=> array('ae'    ,'Ae'    ,'oe'    ,'Oe'    ,'ue'    ,'Ue'    ,'ss'    ),
-			'raw'	=> array('ä'     ,'Ä'     ,'ö'     ,'Ö'     ,'ü'     ,'Ü'     ,'ß',       ),
-			'in'	=> array(chr(228),chr(196),chr(246),chr(214),chr(252),chr(220),chr(223) ),
-			'post'	=> array('&auml;','&Auml;','&ouml;','&Ouml;','&uuml;','&Uuml;','&szlig;'),
-			'feed'	=> array('&#228;','&#196;','&#246;','&#214;','&#252;','&#220;','&#223;' ),
-			'utf8'	=> array($this->u8e('ä'),$this->u8e('Ä'),$this->u8e('ö'),$this->u8e('Ö'),$this->u8e('ü'),$this->u8e('Ü'),$this->u8e('ß') )
-		);
+		$this->showGroupCount = $pluginSettings->settings['showGroupCount'];	
 	}
 	
 	function getCustomFieldValue($fieldName, $alternative) {
