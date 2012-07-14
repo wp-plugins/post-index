@@ -92,8 +92,6 @@ class PostSummary {
 			$title = $this->getCustomFieldValue('book_title', get_the_title());
 			$author = $this->getCustomFieldValue('book_author', NULL);
 			
-			$title = str_replace('&#8220;', '', $title);
-			$title = str_replace('&#8221;', '', $title);
 			     
 			$linkList = array();
 			
@@ -109,15 +107,9 @@ class PostSummary {
 			                , 'author' => $author
 			                , 'permalink' => get_permalink()
 			                , 'linkList' => $linkList );
-			                
-         $decoded_title = html_entity_decode($title);
-			$decoded_title = str_replace($this->characterTable['raw'], $this->characterTable['index'], $decoded_title);
-			$decoded_title = str_replace($this->characterTable['utf8'], $this->characterTable['index'], $decoded_title);
-			$decoded_title = str_replace($this->characterTable['post'], $this->characterTable['index'], $decoded_title);
-			$decoded_title = str_replace($this->characterTable['in'], $this->characterTable['index'], $decoded_title);
+
+			$firstLetter = strtoupper(substr(sanitize_title($title), 0, 1));	
 			
-			$firstLetter = strtoupper(substr($decoded_title, 0, 1));
-         
 			if($groupBy == 'subcategory') {          
 				$post_categories = get_the_category();
 				$cats = array();
@@ -166,6 +158,9 @@ class PostSummary {
 		
 		if($this->groupBy == 'subcategory') { 
 			foreach($this->items as $subCategory => $item) {
+			
+				ksort($item);
+				
 				echo '<h2>'.$subCategory.'</h2>'."\n";
 				// Parse Subcategory
 				$this->printItem($item, $this->itemCount[$subCategory], $subCategory, 'h3');
@@ -249,9 +244,9 @@ class PostSummary {
 				foreach($posts as $post) 
 				{
 					echo '<li><strong><a href="' . $post['permalink'] . '">' . $post['title'] . '</a></strong>';
-					if(!is_null($post[author])) {
+					if(!is_null($post['author'])) {
 						/* translators: a book 'by {author}' */
-						echo ' ' . sprintf(__('by %s', 'post-index'), $book['author']);
+						echo ' ' . sprintf(__('by %s', 'post-index'), $post['author']);
 					}
 					
 					$linkList = $post['linkList'];
