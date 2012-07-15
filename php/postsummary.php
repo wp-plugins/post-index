@@ -109,7 +109,7 @@ class PostSummary {
 			}
 		endwhile;
 		
-		ksort($this->items);
+		ksort($this->items, SORT_STRING);
 		
 		// Reset Query
 		wp_reset_query();
@@ -142,7 +142,7 @@ class PostSummary {
 		if($this->groupBy == 'subcategory') { 
 			foreach($this->items as $subCategory => $item) {
 			
-				ksort($item);
+				ksort($item, SORT_STRING);
 				
 				echo '<h2>'.$subCategory.'</h2>'."\n";
 				// Parse Subcategory
@@ -235,7 +235,7 @@ class PostSummary {
 					$linkList = $post['linkList'];
 					if(count($linkList) > 0) 
 					{
-						echo '<br />';
+						echo '<br /><div style="font-size: smaller;">';
 					
 						for($i = 0; $i < count($linkList); $i++)
 						{
@@ -243,6 +243,7 @@ class PostSummary {
 							echo $this->getSeparator($i, count($linkList), $this->infoSeparator);
 							echo '<a href="' . $link['url'] . '" target="_blank">' . $link['name'] . '</a>';
 						}
+						echo '</div>';
 					}
 					echo '</li>'."\n";
 				}
