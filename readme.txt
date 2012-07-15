@@ -70,7 +70,8 @@ The plugin uses shortcodes now. Please change your page or post and replace `<!-
 
 = 0.6.2 =
 
-* Improved: Added alphabetical subgrouping in groupBy type "subcategory"
+* Fixed: Sorting now uses the sanitize_title function before extracting the first letter.
+* Improved: Added alphabetical subgrouping in groupBy type "subcategory".
 * Added: CategorySlug as a new filter criteria if the category name occurs more than once.
 * Added an optional displayed group count. It can be activated in the settings of the plugin.
 
