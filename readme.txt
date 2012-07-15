@@ -4,7 +4,7 @@ Tags: post, index, overview, list, reference
 Author URI: http://www.thirsch.de/
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=232JYLEQYMWG2
 Requires at least: 2.7
-Tested up to: 3.3.2
+Tested up to: 3.4.1
 Stable tag: 0.6
 License: GPLv2 or later
 
@@ -68,7 +68,7 @@ The plugin uses shortcodes now. Please change your page or post and replace `<!-
 
 == Changelog ==
 
-= 0.7 =
+= 0.6.2 =
 
 * Improved: Added alphabetical subgrouping in groupBy type "subcategory"
 * Added: CategorySlug as a new filter criteria if the category name occurs more than once.
