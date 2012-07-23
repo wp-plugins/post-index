@@ -5,7 +5,7 @@ Author URI: http://www.thirsch.de/
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=232JYLEQYMWG2
 Requires at least: 2.7
 Tested up to: 3.4.1
-Stable tag: 0.6
+Stable tag: 0.6.2
 License: GPLv2 or later
 
 Build an index of all posts found for a specific category and display it in any page or post. 
