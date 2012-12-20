@@ -4,7 +4,7 @@ Tags: post, index, overview, list, reference
 Author URI: http://www.thirsch.de/
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=232JYLEQYMWG2
 Requires at least: 2.7
-Tested up to: 3.4.1
+Tested up to: 3.5
 Stable tag: 0.6.2
 License: GPLv2 or later
 
@@ -13,7 +13,7 @@ Build an index of all posts found for a specific category and display it in any 
 
 == Description ==
 
-[Here](http://books.nivija.com/rezensionen/ "BookLover Blog"), you will find a page where the plugin is in use or have a look to the screenshots page to see it in action.
+[Here](http://books.nivija.com/rezensionen/ "BookLover Blog"), you will find a page where the plugin is in use or have a look at the screenshots page to see it in action.
 
 ***
 
@@ -47,9 +47,7 @@ This section describes how to install the plugin and get it working.
 
 = Why does the index not appear? =
 
-Did you enter the tag `<!--post-index-->` in the Visual or HTML mode of the editor? You have to use the HTML mode, otherwise the tag `<!--post-index-->` does simply appear as it is on your page. 
-
-Please use `[post_index]`, supported since Version 0.5, to avoid that!
+Did you use an existing category or custom post type?
 
 = How to change the grouping? =
 
@@ -58,8 +56,21 @@ The following groupBy clauses to be used in the shortcode `[post_index groupby="
 * firstLetter - Groups the posts according to their first letter
 * subcategory - Uses the subcategory of each post as its group key.
 
+= List of supported shortcodes =
+
+* category: Lists all entries that are in the given category, searched by it's name.
+* categoryslug: Same as category but searched by the slug.
+* groupby: Grouping as explaned in `How to change the grouping`
+* post_type: The index will be build for the given post type instead of the standard type `post`.
+* columns: The amount of columns. Default is 1.
 
 == Upgrade Notice ==
+
+= 0.7 =
+
+* You can now split your index into columns using the attribute columns in the shortcode: `[post_index columns=2]`.
+* Custom post types are now supported and can be specified in the shortcode tag: `[post_index post_type="page"]`.
+* The old filter for `<!--post-index-->` has been completely removed! Replace it by using the shortcode.
 
 = 0.5 =
 
@@ -67,6 +78,12 @@ The plugin uses shortcodes now. Please change your page or post and replace `<!-
 
 
 == Changelog ==
+
+= 0.7 =
+
+* Added: Support for custom post types
+* Added: Support for columns
+* Removed: Support for `<!--post-index-->` has been removed.
 
 = 0.6.2 =
 

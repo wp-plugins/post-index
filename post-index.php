@@ -3,10 +3,10 @@
 	Plugin Name: Post Index
 	Plugin URI: http://wordpress.org/extend/plugins/post-index/
 	Description: This plugin summarises all found blog posts added to a specific category and lists them alphabetically. Additional custom fields could be used to display links to other pages or additional information to a post.
-	Version: 0.6.2
+	Version: 0.7
 	Author: Thomas A. Hirsch
 	Author URI: http://www.thirsch.de/
-	Last Updated: 2012-04-14
+	Last Updated: 2012-12-20
  	License: GPLv2 or later
  	Text Domain: post-index
 
@@ -58,54 +58,31 @@ function post_index_init() {
 	if(!is_admin()) {
 		include_once 'php/postsummary.php';
 		
-		function postSummaryFilter($data) {
-			global $postIndexPluginSettings;
-		
-			$ps = new PostSummary($postIndexPluginSettings);
-			
-			$pattern = '/\<\!\-\-\s*post-index\s*(?:\(\'?([^\']*)\'?\))?\s*\-\-\>/';
-			if(preg_match_all($pattern, $data, $matches))
-			{
-				for($i = 0; $i < count($matches[0]); $i++) {
-					$category_name = $matches[1][$i];
-					$replace_pattern = '/' . preg_quote($matches[0][$i]) . '/';
-		
-					ob_start();	
-					$ps->parse($category_name);
-					$ps->printOut();
-		
-					$content = ob_get_contents();
-					
-					ob_end_clean();
-												
-					$data = preg_replace($replace_pattern, $content, $data);	
-				}
-			}
-			
-			return $data;
-		}
-		
-		add_filter('the_content', 'postSummaryFilter');
-		
 		/**
 		 * ShortCode API hook to include the post index into your post.
 		 */
 		function post_index_func( $atts ) {
 			global $postIndexPluginSettings;
 			
-			extract( shortcode_atts( array ( 'category' => $postIndexPluginSettings->settings['defaultCategory']
+			extract( shortcode_atts( array ( 'category' => null
                                            , 'groupby' => 'firstLetter'
                                            , 'categoryslug' => ''
+                                           , 'post_type' => null
+                                           , 'columns' => 1
                                            )
                                    , $atts 
                                    ) 
                    );
+                   
+            if(empty($post_type) && empty($category)) {
+            	$category = $postIndexPluginSettings->settings['defaultCategory'];
+            }
 			
 			$ps = new PostSummary($postIndexPluginSettings);
 		
 			ob_start();	
-			$ps->parse($category, $groupby, $categoryslug);
-			$ps->printOut();
+			$ps->parse($category, $groupby, $categoryslug, $post_type);
+			$ps->printOut($columns);
 		
 			$content = ob_get_contents();
 			ob_end_clean();
