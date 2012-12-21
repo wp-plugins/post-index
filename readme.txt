@@ -56,13 +56,15 @@ The following groupBy clauses to be used in the shortcode `[post_index groupby="
 * firstLetter - Groups the posts according to their first letter
 * subcategory - Uses the subcategory of each post as its group key.
 
-= List of supported shortcodes =
+= List of supported attributes for the shortcode =
 
-* category: Lists all entries that are in the given category, searched by it's name.
-* categoryslug: Same as category but searched by the slug.
-* groupby: Grouping as explaned in `How to change the grouping`
-* post_type: The index will be build for the given post type instead of the standard type `post`.
-* columns: The amount of columns. Default is 1.
+The base shortcode is `[post_index]`. You can add any of the following attributes to change the output of the index. There are some options which makes no sense to combine. For example to use the category and categoryslug attribute as they will both indicate which category has to be used.
+
+* **category**: Lists all entries that are in the given category, referenced by it's name.
+* **categoryslug**: Same as category but references by the slug.
+* **groupby**: Grouping as explaned in `How to change the grouping`
+* **post_type**: The index will be build for the given post type instead of the standard type `post`. Please see [WordPress Codex, Post Types](http://codex.wordpress.org/Post_Types "WordPress Codex, Post Types") for details.
+* **columns**: The amount of columns. Default is 1.
 
 == Upgrade Notice ==
 
