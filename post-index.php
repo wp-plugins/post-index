@@ -6,7 +6,7 @@
 	Version: 0.7
 	Author: Thomas A. Hirsch
 	Author URI: http://www.thirsch.de/
-	Last Updated: 2012-12-20
+	Last Updated: 2012-12-21
  	License: GPLv2 or later
  	Text Domain: post-index
 
