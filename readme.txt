@@ -8,7 +8,7 @@ Tested up to: 3.5
 Stable tag: 0.7
 License: GPLv2 or later
 
-Build an index of all posts found for a specific category and display it in any page or post. 
+Generates an index of your posts that can be used in any page or post. 
 
 
 == Description ==
@@ -17,11 +17,14 @@ Build an index of all posts found for a specific category and display it in any 
 
 ***
 
-This plugin summarises all found blog posts added to a specific category and lists them alphabetically or grouped by the used subcategory. Additional custom fields could be used to display links to other pages or additional information to a post.
+The plugin summarises all found blog posts added to a specific category or of a specific post type and lists them alphabetically or grouped by the used subcategory. Additional custom fields could be used to display links to other pages or additional information to a post.
 
-What comes next?
+Upcoming features:
 
-* Additional text to a link from custom fields and an admin setting to change the link name
+* Customisable templates for the index entries to add any additional information:
+  * additional text
+  * custom field values
+  * subcategories
 * Or any idea, you post me :)
 
 
@@ -60,8 +63,8 @@ The following groupBy clauses to be used in the shortcode `[post_index groupby="
 
 The base shortcode is `[post_index]`. You can add any of the following attributes to change the output of the index. There are some options which makes no sense to combine. For example to use the category and categoryslug attribute as they will both indicate which category has to be used.
 
-* **category**: Lists all entries that are in the given category, referenced by it's name.
-* **categoryslug**: Same as category but references by the slug.
+* **category**: Lists all entries that are in the given category, searched by it's name.
+* **categoryslug**: Same as category but searched by the slug.
 * **groupby**: Grouping as explaned in `How to change the grouping`
 * **post_type**: The index will be build for the given post type instead of the standard type `post`. Please see [WordPress Codex, Post Types](http://codex.wordpress.org/Post_Types "WordPress Codex, Post Types") for details.
 * **columns**: The amount of columns. Default is 1.
