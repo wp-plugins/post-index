@@ -8,7 +8,7 @@ Tested up to: 3.5
 Stable tag: 0.7
 License: GPLv2 or later
 
-Build an index of all posts found for a specific category and display it in any page or post. 
+Generates an index of your posts that can be used in any page or post. 
 
 
 == Description ==
@@ -17,11 +17,14 @@ Build an index of all posts found for a specific category and display it in any 
 
 ***
 
-This plugin summarises all found blog posts added to a specific category and lists them alphabetically or grouped by the used subcategory. Additional custom fields could be used to display links to other pages or additional information to a post.
+This plugin summarises all found blog posts added to a specific category or of a specific post type and lists them alphabetically or grouped by the used subcategory. Additional custom fields could be used to display links to other pages or additional information to a post.
 
-What comes next?
+Upcoming features:
 
-* Additional text to a link from custom fields and an admin setting to change the link name
+* Customisable templates for the index entries to add any additional information:
+  * additional text
+  * custom field values
+  * subcategories
 * Or any idea, you post me :)
 
 
