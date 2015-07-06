@@ -4,13 +4,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Post Index 0.5\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/post-index\n"
-"POT-Creation-Date: 2012-04-30 21:27:13+00:00\n"
-"PO-Revision-Date: 2012-04-30 23:31+0100\n"
+"POT-Creation-Date: 2015-07-06 19:00+0200\n"
+"PO-Revision-Date: 2015-07-06 19:01+0200\n"
 "Last-Translator: Thomas Hirsch <me@thirsch.de>\n"
+"Language-Team: \n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language-Team: \n"
+"X-Generator: Poedit 1.8.2\n"
 
 #: php/postadmin.php:14
 msgid "Post Index - Additional links"
@@ -29,8 +31,7 @@ msgstr "Springe zu:"
 msgid "by %s"
 msgstr "von %s"
 
-#: php/settings.php:38
-#: php/settings.php:177
+#: php/settings.php:38 php/settings.php:177
 msgid "Remove"
 msgstr "Entfernen"
 
@@ -48,7 +49,9 @@ msgstr "Grundeinstellungen"
 
 #: php/settings.php:121
 msgid "Please define general settings for the plugin."
-msgstr "In diesem Bereich werden generelle Einstellungen für den Post Index hinterlegt."
+msgstr ""
+"In diesem Bereich werden generelle Einstellungen für den Post Index "
+"hinterlegt."
 
 #: php/settings.php:128
 msgid "Default category"
@@ -75,8 +78,18 @@ msgid "Additional links"
 msgstr "Zusätzliche Links"
 
 #: php/settings.php:150
-msgid "Additional links can be added via custom fields. The sentence that is displayed below each link in the index can be build with the following text parts. Define the custom fields for the additional links with the fields at the end of this section and use them directly in your post. You can display a %s at the end of this page."
-msgstr "Weitere Informationen zu Artikeln können derzeit über Links in Custom Fields hinzugefügt werden. Den Aufbau der Linkzeile unterhalb des Artikels wird mit den nachfolgenden Trennwörtern definiert. Die verfügbaren Felder für Artikel sind im Anschluss daran aufgelistet. Ein Beispiel der Zusatzzeile wird nach dem Speichern im Bereich %s angezeigt."
+msgid ""
+"Additional links can be added via custom fields. The sentence that is "
+"displayed below each link in the index can be build with the following text "
+"parts. Define the custom fields for the additional links with the fields at "
+"the end of this section and use them directly in your post. You can display "
+"a %s at the end of this page."
+msgstr ""
+"Weitere Informationen zu Artikeln können derzeit über Links in Custom Fields "
+"hinzugefügt werden. Den Aufbau der Linkzeile unterhalb des Artikels wird mit "
+"den nachfolgenden Trennwörtern definiert. Die verfügbaren Felder für Artikel "
+"sind im Anschluss daran aufgelistet. Ein Beispiel der Zusatzzeile wird nach "
+"dem Speichern im Bereich %s angezeigt."
 
 #: php/settings.php:150
 msgid "preview"
@@ -140,9 +153,32 @@ msgstr "Beiträge"
 
 #: php/settings.php:251
 msgid "You will find ${PostCount} in the category ${Category} on this blog."
-msgstr "Auf diesem Blog findest Du bisher ${PostCount} in der Kategorie ${Category}. Viel Spass beim Stöbern!"
+msgstr ""
+"Auf diesem Blog findest Du bisher ${PostCount} in der Kategorie ${Category}. "
+"Viel Spass beim Stöbern!"
 
 #. Description of the plugin/theme
-msgid "This plugin summarises all found blog posts added to a specific category and lists them alphabetically. Additional custom fields could be used to display links to other pages or additional information to a post."
-msgstr "Dieses Plugin erstellt einen Index aller Blogeinträge für eine bestimmte Kategorie und sortiert diese alphabetisch. Zusätzliche Links zu anderen Webseiten können über benutzerdefinierte Felder hinzugefügt werden."
+msgid ""
+"This plugin summarises all found blog posts added to a specific category and "
+"lists them alphabetically. Additional custom fields could be used to display "
+"links to other pages or additional information to a post."
+msgstr ""
+"Dieses Plugin erstellt einen Index aller Blogeinträge für eine bestimmte "
+"Kategorie und sortiert diese alphabetisch. Zusätzliche Links zu anderen "
+"Webseiten können über benutzerdefinierte Felder hinzugefügt werden."
 
+msgid ""
+"Get started by adding the shortcode <code>[post-index]</code> to a new page "
+"to list an index of your blog posts."
+msgstr ""
+"Beginnen Sie, indem Sie den Shortcode <code>[post-index]</code> auf eine "
+"neue Seite schreiben, um eine Liste aller Posts dort anzuzeigen."
+
+msgid ""
+"A complete list of all supported short codes and arguments are listed in the "
+"<a href=\"https://wordpress.org/plugins/post-index/faq/\" target=\"_BLANK"
+"\">FAQ</a>."
+msgstr ""
+"Eine vollständige Liste aller unterstützten Shortcodes und Argumente sind in "
+"der <a href=\"https://wordpress.org/plugins/post-index/faq/\" target=\"_BLANK"
+"\">FAQ</a> aufgelistet. "
