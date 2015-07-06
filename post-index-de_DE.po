@@ -168,10 +168,10 @@ msgstr ""
 "Webseiten können über benutzerdefinierte Felder hinzugefügt werden."
 
 msgid ""
-"Get started by adding the shortcode <code>[post-index]</code> to a new page "
+"Get started by adding the shortcode <code>[post_index]</code> to a new page "
 "to list an index of your blog posts."
 msgstr ""
-"Beginnen Sie, indem Sie den Shortcode <code>[post-index]</code> auf eine "
+"Beginnen Sie, indem Sie den Shortcode <code>[post_index]</code> auf eine "
 "neue Seite schreiben, um eine Liste aller Posts dort anzuzeigen."
 
 msgid ""
