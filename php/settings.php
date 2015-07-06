@@ -110,6 +110,12 @@
 
 				<h2><?php printf(__('%s Settings', 'post-index'), $this->pluginLabel); ?></h2>
 
+					<p><?php _e('Get started by adding the shortcode <code>[post-index]</code> to a new page to list an index of your blog posts.')?></p>
+					
+				<p><?php _e('A complete list of all supported short codes and arguments are listed in the <a href="https://wordpress.org/plugins/post-index/faq/" target="_BLANK">FAQ</a>.'); ?>
+					
+
+
 				<form method="post" action="options-general.php?page=<?php echo$this->pluginName;?>">
 					<input type="hidden" name="updateSettings" value="1" />
 					<h3><?php _e('General settings', 'post-index'); ?></h3>
