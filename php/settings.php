@@ -56,7 +56,7 @@
 		}
 
 		function CreateMenu() {
-			add_options_page($this->pluginLabel, $this->pluginLabel, 10, $this->pluginName, array($this, 'OptionsPage'));
+			add_options_page($this->pluginLabel, $this->pluginLabel, 'edit_plugins', $this->pluginName, array($this, 'OptionsPage'));
 		}	
 		
 		private function buildInfoLinks($nameList, $fieldList) {

@@ -5,7 +5,7 @@ Author URI: http://www.thirsch.de/
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=232JYLEQYMWG2
 Requires at least: 2.7
 Tested up to: 4.2.2
-Stable tag: 0.7.2
+Stable tag: 0.7.3
 License: GPLv2 or later
 
 Generates an index of your posts that can be used in any page or post. 
@@ -70,6 +70,10 @@ The base shortcode is `[post_index]`. You can add any of the following attribute
 * **columns**: The amount of columns. Default is 1.
 
 == Upgrade Notice ==
+
+= 0.7.3 =
+
+* Removed deprecation warning, caused by the use of old user levels. The call has been replaced by using a role name.
 
 = 0.7.2 =
 
