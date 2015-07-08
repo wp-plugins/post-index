@@ -71,6 +71,10 @@ The base shortcode is `[post_index]`. You can add any of the following attribute
 
 == Upgrade Notice ==
 
+= 0.7.4 =
+
+* Added dutch translation of the plugin. Thanks to aadje93.
+
 = 0.7.3 =
 
 * Removed deprecation warning, caused by the use of old user levels. The call has been replaced by using a role name.

@@ -1,0 +1,170 @@
+# Copyright (C) 2012 Post Index
+# This file is distributed under the same license as the Post Index package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Post Index 0.7\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/post-index\n"
+"POT-Creation-Date: 2015-07-08 07:50+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-07-08 10:01+0200\n"
+"Last-Translator: Adriaan <info@voliere-info.nl>\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl_NL\n"
+
+#: php/postadmin.php:14
+msgid "Post Index - Additional links"
+msgstr "Berichten index - Extra links"
+
+#: php/postadmin.php:43
+msgid "No additional links defined yet!"
+msgstr "Nog geen extra links gedefinieerd!"
+
+#: php/postsummary.php:222
+msgid "Jump to"
+msgstr "Ga naar"
+
+#. translators: a book 'by {author}'
+#: php/postsummary.php:245
+msgid "by %s"
+msgstr "door %s"
+
+#: php/settings.php:38 php/settings.php:177
+msgid "Remove"
+msgstr "Verwijder"
+
+#: php/settings.php:107
+msgid "Settings saved."
+msgstr "Instellingen opgeslagen"
+
+#: php/settings.php:116
+msgid "%s Settings"
+msgstr "%s Instellingen"
+
+#: php/settings.php:120
+msgid "General settings"
+msgstr "Algemene instellingen"
+
+#: php/settings.php:121
+msgid "Please define general settings for the plugin."
+msgstr "Defineer de algemene instellingen voor de plugin"
+
+#: php/settings.php:128
+msgid "Default category"
+msgstr "Standaard catogerie"
+
+#: php/settings.php:133
+msgid "Show group count"
+msgstr "Toon het groep aantal"
+
+#: php/settings.php:140
+msgid "Page description"
+msgstr "Pagina beschrijving"
+
+#: php/settings.php:144
+msgid "Post label"
+msgstr "Bericht label"
+
+#: php/settings.php:144
+msgid "(for none, one and many posts)"
+msgstr "(Voor geen, één en meerdere berichten)"
+
+#: php/settings.php:149
+msgid "Additional links"
+msgstr "Extra links"
+
+# What is the %s used for in this sentence?
+# Now my translation is like: you can display a %s at the end of the page, but if its like you can view a %s at the end of the page it would be a different sentence :)
+#: php/settings.php:150
+msgid ""
+"Additional links can be added via custom fields. The sentence that is displayed below each link in the index can be build with the following text parts. Define the "
+"custom fields for the additional links with the fields at the end of this section and use them directly in your post. You can display a %s at the end of this page."
+msgstr ""
+"Extra links kunnen via de aangepaste velden worden toegevoegd. De text die onder elke link in de post index wordt getoond kan gemaakt worden met de volgende tekst "
+"delen. Defineer de aangepaste velden voor additionele links met de invulvelden aan het einde van deze sectie, en gebruik ze direct in je bericht. Je kunt een %s aan "
+"het einde van de pagina tonen"
+
+#: php/settings.php:150
+msgid "preview"
+msgstr "preview"
+
+#: php/settings.php:157
+msgid "Sentence"
+msgstr "zin"
+
+#: php/settings.php:157
+msgid "(First part, repeated separator, last separator, last part)"
+msgstr "(Eerste deel, herhaald scheidingsteken, laatste scheidings teken, laatste deel)"
+
+#: php/settings.php:166
+msgid "Name"
+msgstr "Naam"
+
+#: php/settings.php:167
+msgid "Custom Field ID"
+msgstr "Aangepast veld ID"
+
+# In what sentence is this used?
+# IF its like add 1 to the number 20 its "tel 1 bij 20 op" (counting)
+# But if its like add "this" to "that" Its: Voeg "dit" bij "dat" which is completely different sentence.
+#: php/settings.php:185
+msgid "Add"
+msgstr "Voeg toe"
+
+#: php/settings.php:190
+msgid "Save Changes"
+msgstr "Instellingen opslaan"
+
+#: php/settings.php:195
+msgid "Preview"
+msgstr "Preview"
+
+#: php/settings.php:240
+msgid "Uncategorized"
+msgstr "Niet gecategoriseerd"
+
+#. translators: The first part of the additional links sentence. Please be
+#. aware of any blanks.
+#: php/settings.php:243
+msgid "also at "
+msgstr "Zie ook "
+
+#. translators: Last separator of the additional links sentence. Please be
+#. aware of any blanks.
+#: php/settings.php:246
+msgid " and "
+msgstr " en "
+
+#: php/settings.php:250
+msgid "no post"
+msgstr "Geen berichten"
+
+#: php/settings.php:250
+msgid "one post"
+msgstr "één bericht"
+
+#: php/settings.php:250
+msgid "posts"
+msgstr "berichten"
+
+#: php/settings.php:251
+msgid "You will find ${PostCount} in the category ${Category} on this blog."
+msgstr "U vind $(PostCount) in de catogerie $(Category) op deze blog."
+
+#. Description of the plugin/theme
+msgid ""
+"This plugin summarises all found blog posts added to a specific category and lists them alphabetically. Additional custom fields could be used to display links to "
+"other pages or additional information to a post."
+msgstr ""
+"Deze plugin maakt een opsomming van alle gevonden links in een gespecificeerde catogerie en toont deze alfabetisch. Daarnaast zijn er aangepaste velden beschikbaar "
+"om extra links naar andere paginas of extra informatie als text te tonen."
+
+msgid "Get started by adding the shortcode <code>[post_index]</code> to a new page to list an index of your blog posts."
+msgstr "Start met het toevoegen van de shortcode <code>[post_index]</code> aan een nieuwe pagina. De post index zal dan automatisch gemaakt worden."
+
+msgid ""
+"A complete list of all supported short codes and arguments are listed in the <a href=\"https://wordpress.org/plugins/post-index/faq/\" target=\"_BLANK\">FAQ</a>."
+msgstr "Een complete lijst met alle shortcodes en arguments is te vinden in de <a href=\"https://wordpress.org/plugins/post-index/faq/\" target=\"_BLANK\">FAQ</a>."
