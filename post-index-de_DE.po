@@ -3,9 +3,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Post Index 0.7\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/post-index\n"
-"POT-Creation-Date: 2015-07-06 19:00+0200\n"
-"PO-Revision-Date: 2015-07-08 10:01+0200\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/post-index\n"
+"POT-Creation-Date: 2015-07-08 19:52+0200\n"
+"PO-Revision-Date: 2015-07-08 19:54+0200\n"
 "Last-Translator: Thomas Hirsch <me@thirsch.de>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -22,62 +22,94 @@ msgstr "Post Index - Zusätzliche Links"
 msgid "No additional links defined yet!"
 msgstr "Keine Zusatzinformationen für Post Index konfiguriert!"
 
-#: php/postsummary.php:222
+#: php/postadmin.php:44 php/settings.php:44
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: php/postsummary.php:204
 msgid "Jump to"
 msgstr "Springe zu:"
 
 #. translators: a book 'by {author}'
-#: php/postsummary.php:245
+#: php/postsummary.php:248
 msgid "by %s"
 msgstr "von %s"
 
-#: php/settings.php:38 php/settings.php:177
+#: php/settings.php:38 php/settings.php:167
 msgid "Remove"
 msgstr "Entfernen"
 
-#: php/settings.php:107
+#: php/settings.php:103
 msgid "Settings saved."
 msgstr "Einstellungen wurden gespeichert."
 
-#: php/settings.php:116
+#: php/settings.php:111
 msgid "%s Settings"
 msgstr "Einstellungen &rsaquo; %s"
 
-#: php/settings.php:120
+#: php/settings.php:113
+msgid ""
+"Get started by adding the shortcode %s to a new page to list an index of "
+"your blog posts."
+msgstr ""
+"Beginnen Sie, indem Sie den Shortcode %s auf eine neue Seite schreiben, um "
+"eine Liste aller Posts dort anzuzeigen."
+
+#: php/settings.php:115
+msgid ""
+"A complete list of all supported short codes and arguments are listed in the "
+"%s."
+msgstr ""
+"Eine vollständige Liste aller unterstützten Shortcodes und Argumente sind in "
+"der %s aufgelistet. "
+
+#: php/settings.php:115
+msgid "FAQ"
+msgstr "FAQ"
+
+#: php/settings.php:119
 msgid "General settings"
 msgstr "Grundeinstellungen"
 
-#: php/settings.php:121
+#: php/settings.php:120
 msgid "Please define general settings for the plugin."
 msgstr ""
 "In diesem Bereich werden generelle Einstellungen für den Post Index "
 "hinterlegt."
 
-#: php/settings.php:128
+#: php/settings.php:124
 msgid "Default category"
 msgstr "Kategorie"
 
-#: php/settings.php:133
+#: php/settings.php:128
 msgid "Show group count"
 msgstr "Beiträge pro Gruppe anzeigen"
 
-#: php/settings.php:140
+#: php/settings.php:130
+msgid "Yes"
+msgstr "Ja"
+
+#: php/settings.php:131
+msgid "No"
+msgstr "Nein"
+
+#: php/settings.php:135
 msgid "Page description"
 msgstr "Seitenbeschreibung"
 
-#: php/settings.php:144
+#: php/settings.php:139
 msgid "Post label"
 msgstr "Beitragsbezeichnung"
 
-#: php/settings.php:144
+#: php/settings.php:139
 msgid "(for none, one and many posts)"
 msgstr "(f&uuml;r keinen, einen und mehrere Artikel)"
 
-#: php/settings.php:149
+#: php/settings.php:144
 msgid "Additional links"
 msgstr "Zusätzliche Links"
 
-#: php/settings.php:150
+#: php/settings.php:145
 msgid ""
 "Additional links can be added via custom fields. The sentence that is "
 "displayed below each link in the index can be build with the following text "
@@ -91,71 +123,79 @@ msgstr ""
 "sind im Anschluss daran aufgelistet. Ein Beispiel der Zusatzzeile wird nach "
 "dem Speichern im Bereich %s angezeigt."
 
-#: php/settings.php:150
+#: php/settings.php:145
 msgid "preview"
 msgstr "Vorschau"
 
-#: php/settings.php:157
+#: php/settings.php:149
 msgid "Sentence"
 msgstr "Satz"
 
-#: php/settings.php:157
+#: php/settings.php:149
 msgid "(First part, repeated separator, last separator, last part)"
 msgstr "(Anfang, wiederholtes Trennzeichen, letztes Trennzeichen, Schluss)"
 
-#: php/settings.php:166
+#: php/settings.php:157
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
-#: php/settings.php:167
+#: php/settings.php:158
 msgid "Custom Field ID"
-msgstr ""
+msgstr "ID des benutzerdefinierten Feldes"
 
-#: php/settings.php:185
+#: php/settings.php:175
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: php/settings.php:190
+#: php/settings.php:180
 msgid "Save Changes"
 msgstr "Speichern"
 
-#: php/settings.php:195
+#: php/settings.php:185
 msgid "Preview"
 msgstr "Vorschau"
 
-#: php/settings.php:240
+#: php/settings.php:230
 msgid "Uncategorized"
 msgstr "Allgemein"
 
 #. translators: The first part of the additional links sentence. Please be
 #. aware of any blanks.
-#: php/settings.php:243
+#: php/settings.php:233
 msgid "also at "
 msgstr "auch bei "
 
 #. translators: Last separator of the additional links sentence. Please be
 #. aware of any blanks.
-#: php/settings.php:246
+#: php/settings.php:236
 msgid " and "
 msgstr " und "
 
-#: php/settings.php:250
+#: php/settings.php:240
 msgid "no post"
 msgstr "keinen Beitrag"
 
-#: php/settings.php:250
+#: php/settings.php:240
 msgid "one post"
 msgstr "einen Beitrag"
 
-#: php/settings.php:250
+#: php/settings.php:240
 msgid "posts"
 msgstr "Beiträge"
 
-#: php/settings.php:251
+#: php/settings.php:241
 msgid "You will find ${PostCount} in the category ${Category} on this blog."
 msgstr ""
 "Auf diesem Blog findest Du bisher ${PostCount} in der Kategorie ${Category}. "
 "Viel Spass beim Stöbern!"
+
+#. Plugin Name of the plugin/theme
+msgid "Post Index"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/extend/plugins/post-index/"
+msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
@@ -167,18 +207,19 @@ msgstr ""
 "Kategorie und sortiert diese alphabetisch. Zusätzliche Links zu anderen "
 "Webseiten können über benutzerdefinierte Felder hinzugefügt werden."
 
-msgid ""
-"Get started by adding the shortcode <code>[post_index]</code> to a new page "
-"to list an index of your blog posts."
+#. Author of the plugin/theme
+msgid "Thomas A. Hirsch"
 msgstr ""
-"Beginnen Sie, indem Sie den Shortcode <code>[post_index]</code> auf eine "
-"neue Seite schreiben, um eine Liste aller Posts dort anzuzeigen."
 
-msgid ""
-"A complete list of all supported short codes and arguments are listed in the "
-"<a href=\"https://wordpress.org/plugins/post-index/faq/\" target=\"_BLANK"
-"\">FAQ</a>."
+#. Author URI of the plugin/theme
+msgid "http://www.thirsch.de/"
 msgstr ""
-"Eine vollständige Liste aller unterstützten Shortcodes und Argumente sind in "
-"der <a href=\"https://wordpress.org/plugins/post-index/faq/\" target=\"_BLANK"
-"\">FAQ</a> aufgelistet. "
+
+#~ msgid ""
+#~ "A complete list of all supported short codes and arguments are listed in "
+#~ "the <a href=\"https://wordpress.org/plugins/post-index/faq/\" target="
+#~ "\"_BLANK\">FAQ</a>."
+#~ msgstr ""
+#~ "Eine vollständige Liste aller unterstützten Shortcodes und Argumente sind "
+#~ "in der <a href=\"https://wordpress.org/plugins/post-index/faq/\" target="
+#~ "\"_BLANK\">FAQ</a> aufgelistet. "
