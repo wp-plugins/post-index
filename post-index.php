@@ -63,26 +63,29 @@ function post_index_init() {
 		 */
 		function post_index_func( $atts ) {
 			global $postIndexPluginSettings;
-			
+
 			extract( shortcode_atts( array ( 'category' => null
                                            , 'groupby' => 'firstLetter'
                                            , 'categoryslug' => ''
                                            , 'post_type' => null
                                            , 'columns' => 1
+						                   , 'show_letter' => true
                                            )
                                    , $atts 
                                    ) 
                    );
+
+            $show_letter = filter_var($show_letter, FILTER_VALIDATE_BOOLEAN);
                    
             if(empty($post_type) && empty($category)) {
             	$category = $postIndexPluginSettings->settings['defaultCategory'];
             }
 			
 			$ps = new PostSummary($postIndexPluginSettings);
-		
+
 			ob_start();	
 			$ps->parse($category, $groupby, $categoryslug, $post_type);
-			$ps->printOut($columns);
+			$ps->printOut($columns, $show_letter);
 		
 			$content = ob_get_contents();
 			ob_end_clean();

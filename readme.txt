@@ -68,12 +68,15 @@ The base shortcode is `[post_index]`. You can add any of the following attribute
 * **groupby**: Grouping as explaned in `How to change the grouping`
 * **post_type**: The index will be build for the given post type instead of the standard type `post`. Please see [WordPress Codex, Post Types](http://codex.wordpress.org/Post_Types "WordPress Codex, Post Types") for details.
 * **columns**: The amount of columns. Default is 1.
+* **show_letter**: If set to false, the grouping letter will not be generated.
 
 == Upgrade Notice ==
 
 = 0.7.4 =
 
-* Added dutch translation of the plugin. Thanks to aadje93.
+* Added: Dutch translation of the plugin. Thanks to aadje93.
+* Added: Parameter show_letter to explicitly hide the grouping letter. (Usage: `[post_index show_letter=false]`)
+* Fixed: On PHP configurations having error_reporting set to include E_NOTICE, saving pages ended up with a warning page.
 
 = 0.7.3 =
 

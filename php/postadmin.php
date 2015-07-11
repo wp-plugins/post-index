@@ -67,6 +67,7 @@
 
          // verify this came from the our screen and with proper authorization,
          // because save_post can be triggered at other times
+         //if ( !wp_verify_nonce( isset($_POST[POST_INDEX_PLUGIN_PREFIX.'noncename']) ? $_POST[POST_INDEX_PLUGIN_PREFIX.'noncename'] : '', POST_INDEX_PLUGIN_BASENAME ) )
          if ( !wp_verify_nonce( $_POST[POST_INDEX_PLUGIN_PREFIX.'noncename'], POST_INDEX_PLUGIN_BASENAME ) )
             return;
   
