@@ -5,7 +5,7 @@ Author URI: http://www.thirsch.de/
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=232JYLEQYMWG2
 Requires at least: 2.7
 Tested up to: 4.2.2
-Stable tag: 0.7.3
+Stable tag: 0.7.4
 License: GPLv2 or later
 
 Generates an index of your posts that can be used in any page or post. 
@@ -72,6 +72,19 @@ The base shortcode is `[post_index]`. You can add any of the following attribute
 
 == Upgrade Notice ==
 
+= 0.7 =
+
+* You can now split your index into columns using the attribute columns in the shortcode: `[post_index columns=2]`.
+* Custom post types are now supported and can be specified in the shortcode tag: `[post_index post_type="page"]`.
+* The old filter for `<!--post-index-->` has been completely removed! Replace it by using the shortcode.
+
+= 0.5 =
+
+The plugin uses shortcodes now. Please change your page or post and replace `<!--post-index-->` with `[post_index]`! Thanks to [Franz Wieser](http://www.wieser.at/ "Franz Wieser")
+
+
+== Changelog ==
+
 = 0.7.4 =
 
 * Added: Dutch translation of the plugin. Thanks to aadje93.
@@ -91,19 +104,6 @@ The base shortcode is `[post_index]`. You can add any of the following attribute
 
 * Tested successfully with 3.7.1 and 3.8
 * Removed short codes as some hosters do not support them.
-
-= 0.7 =
-
-* You can now split your index into columns using the attribute columns in the shortcode: `[post_index columns=2]`.
-* Custom post types are now supported and can be specified in the shortcode tag: `[post_index post_type="page"]`.
-* The old filter for `<!--post-index-->` has been completely removed! Replace it by using the shortcode.
-
-= 0.5 =
-
-The plugin uses shortcodes now. Please change your page or post and replace `<!--post-index-->` with `[post_index]`! Thanks to [Franz Wieser](http://www.wieser.at/ "Franz Wieser")
-
-
-== Changelog ==
 
 = 0.7 =
 
