@@ -87,7 +87,8 @@ The plugin uses shortcodes now. Please change your page or post and replace `<!-
 
 = 0.7.4 =
 
-* Added: Dutch translation of the plugin. Thanks to aadje93.
+* Added: Dutch translation. Thanks to aadje93.
+* Added: Portuguese translation. Thanks to luisapietrobon.
 * Added: Parameter show_letter to explicitly hide the grouping letter. (Usage: `[post_index show_letter=false]`)
 * Fixed: On PHP configurations having error_reporting set to include E_NOTICE, saving pages ended up with a warning page.
 
