@@ -3,10 +3,10 @@
 	Plugin Name: Post Index
 	Plugin URI: http://wordpress.org/extend/plugins/post-index/
 	Description: This plugin summarises all found blog posts added to a specific category and lists them alphabetically. Additional custom fields could be used to display links to other pages or additional information to a post.
-	Version: 0.7.4-dev
+	Version: 0.7.4
 	Author: Thomas A. Hirsch
 	Author URI: http://www.thirsch.de/
-	Last Updated: 2015-07-08
+	Last Updated: 2015-07-19
  	License: GPLv2 or later
  	Text Domain: post-index
 
