@@ -21,7 +21,7 @@ class PostSummary {
 		$this->showGroupCount = $pluginSettings->settings['showGroupCount'];	
 	}
 	
-	function getCustomFieldValue($fieldName, $alternative) {
+	function getCustomFieldValue($fieldName, $alternative = null) {
 		$customFieldValues = get_post_custom_values($fieldName);
 		if(is_null($customFieldValues)) {
 			return $alternative;
@@ -40,7 +40,7 @@ class PostSummary {
 		return $this->postLabel[0];
 	}
 	
-	function parse($category_name, $groupBy, $categoryslug = '', $post_type = null) {
+	function parse($category_name, $groupBy, $groupByCf = null, $categoryslug = '', $post_type = null) {
       $category = NULL;
       
       if(!empty($post_type)) {
@@ -94,14 +94,14 @@ class PostSummary {
            
 		while (have_posts()) : the_post();
 			$title = $this->getCustomFieldValue('book_title', get_the_title());
-			$author = $this->getCustomFieldValue('book_author', NULL);
+			$author = $this->getCustomFieldValue('book_author');
 			
 			     
 			$linkList = array();
 			
 			if(!empty($this->foreignLinks)) {
 				foreach($this->foreignLinks as $name => $urlField) {
-					$url = $this->getCustomFieldValue($urlField, NULL);
+					$url = $this->getCustomFieldValue($urlField);
 					if(!is_null($url))
 						$linkList[] = array ( 'name' => $name, 'url' => $url );
 				}
@@ -112,25 +112,45 @@ class PostSummary {
 			                , 'permalink' => get_permalink()
 			                , 'linkList' => $linkList );
 
-			$firstLetter = strtoupper(substr(sanitize_title($title), 0, 1));	
-			
-			if($groupBy == 'subcategory') {          
+            if ($groupByCf) {
+                $cfValue = $this->getCustomFieldValue($groupByCf);
+                $curItem['sortValue'] = $cfValue;
+                if (!$cfValue) {
+                    continue;
+                }
+
+                $firstLetter = strtoupper(substr(sanitize_title($cfValue), 0, 1));
+            } else {
+                $curItem['sortValue'] = $title;
+                $firstLetter = strtoupper(substr(sanitize_title($title), 0, 1));
+            }
+
+			if($groupBy == 'subcategory') {
 				$post_categories = get_the_category();
-				$cats = array();
-	
-				foreach($post_categories as $c){					
-					if($c->parent == $categoryId) {
-						$this->items[$c->cat_name][$firstLetter][] = $curItem;				
+
+				foreach ($post_categories as $c) {
+					if ($c->parent == $categoryId) {
+						$this->items[$c->cat_name][$firstLetter][] = $curItem;
 						++$this->itemCount[$c->cat_name];
 					}
 				}
-			} else {	
+			} else {
 				$this->items[$firstLetter][] = $curItem;
 				++$this->itemCount;
 			}
 		endwhile;
 		
 		ksort($this->items, SORT_STRING);
+
+        foreach ($this->items as &$elements) {
+            uasort($elements, function ($a, $b) {
+                if ($a['sortValue'] == $b['sortValue']) {
+                    return 0;
+                }
+
+                return ($a['sortValue'] < $b['sortValue']) ? -1 : 1;
+            });
+        }
 		
 		// Reset Query
 		wp_reset_query();

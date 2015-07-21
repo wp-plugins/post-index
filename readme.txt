@@ -65,10 +65,11 @@ The base shortcode is `[post_index]`. You can add any of the following attribute
 
 * **category**: Lists all entries that are in the given category, searched by it's name.
 * **categoryslug**: Same as category but searched by the slug.
-* **groupby**: Grouping as explaned in `How to change the grouping`
+* **groupby**: Grouping as explaned in `How to change the grouping`, possible values are `firstLetter`, `subcategory`, and `custom_field`
 * **post_type**: The index will be build for the given post type instead of the standard type `post`. Please see [WordPress Codex, Post Types](http://codex.wordpress.org/Post_Types "WordPress Codex, Post Types") for details.
 * **columns**: The amount of columns. Default is 1.
 * **show_letter**: If set to false, the grouping letter will not be generated.
+* **groupby_cf**: If defined, the custom field value will be used for grouping and sorting instead of the blog posts title.
 
 == Upgrade Notice ==
 
@@ -84,6 +85,10 @@ The plugin uses shortcodes now. Please change your page or post and replace `<!-
 
 
 == Changelog ==
+
+= 0.7.5 =
+
+* Added: Use any custom field value to group your index with. Just specify it in the shortcode like `[post_index groupby_cf='Author']`. It does work together with grouping by subcategory and the default firstLetter grouping.
 
 = 0.7.4 =
 

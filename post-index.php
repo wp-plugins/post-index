@@ -70,6 +70,7 @@ function post_index_init() {
                                            , 'post_type' => null
                                            , 'columns' => 1
 						                   , 'show_letter' => true
+						                   , 'groupby_cf' => null
                                            )
                                    , $atts 
                                    ) 
@@ -84,7 +85,7 @@ function post_index_init() {
 			$ps = new PostSummary($postIndexPluginSettings);
 
 			ob_start();	
-			$ps->parse($category, $groupby, $categoryslug, $post_type);
+			$ps->parse($category, $groupby, $groupby_cf, $categoryslug, $post_type);
 			$ps->printOut($columns, $show_letter);
 		
 			$content = ob_get_contents();
