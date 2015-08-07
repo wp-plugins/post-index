@@ -69,6 +69,7 @@ The base shortcode is `[post_index]`. You can add any of the following attribute
 * **post_type**: The index will be build for the given post type instead of the standard type `post`. Please see [WordPress Codex, Post Types](http://codex.wordpress.org/Post_Types "WordPress Codex, Post Types") for details.
 * **columns**: The amount of columns. Default is 1.
 * **show_letter**: If set to false, the grouping letter will not be generated.
+* **show_list**: If set to false, the "Jump to" list will not be generated.
 * **groupby_cf**: If defined, the custom field value will be used for grouping and sorting instead of the blog posts title.
 
 == Upgrade Notice ==
@@ -89,11 +90,12 @@ The plugin uses shortcodes now. Please change your page or post and replace `<!-
 = 0.7.5 =
 
 * Added: Use any custom field value to group your index with. Just specify it in the shortcode like `[post_index groupby_cf='Author']`. It does work together with grouping by subcategory and the default firstLetter grouping.
+* Added: New Parameter show_list to explicitly hiding the "Jump to" list. Contributed by billthefarmer. (Usage: `[post_index show_list=false]`)
 
 = 0.7.4 =
 
-* Added: Dutch translation. Thanks to aadje93.
-* Added: Portuguese translation. Thanks to luisapietrobon.
+* Added: Dutch translation. Contributed by aadje93.
+* Added: Portuguese translation. Contributed by luisapietrobon.
 * Added: Parameter show_letter to explicitly hide the grouping letter. (Usage: `[post_index show_letter=false]`)
 * Fixed: On PHP configurations having error_reporting set to include E_NOTICE, saving pages ended up with a warning page.
 

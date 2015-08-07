@@ -175,7 +175,7 @@ class PostSummary {
 			return $infoSeparator[2];
 		}
 	
-	function printOut($maxColumns = 1, $showLetter = true)
+	function printOut($maxColumns = 1, $showLetter = true, $showList = true)
 	{		
 		if(is_null($this->items))
 		return;
@@ -187,11 +187,11 @@ class PostSummary {
 				
 				echo '<h2>'.$subCategory.'</h2>'."\n";
 				// Parse Subcategory
-				$this->printItem($item, $this->itemCount[$subCategory], $subCategory, $maxColumns, $showLetter, 'h3');
+				$this->printItem($item, $this->itemCount[$subCategory], $subCategory, $maxColumns, $showLetter, $showList, 'h3');
 			}
 		}
 		else {
-			$this->printItem($this->items, $this->itemCount, $this->category, $maxColumns, $showLetter);
+			$this->printItem($this->items, $this->itemCount, $this->category, $maxColumns, $showLetter, $showList);
 		}
 		
 		echo "\n<!-- end of post-index content. --> \n";
@@ -202,7 +202,7 @@ class PostSummary {
 	 *
 	 * @param int $maxColumns determines the amount of columns
 	 */
-	function printItem($item, $itemCount, $categoryName, $maxColumns, $showLetter, $headerTag = 'h2') {
+	function printItem($item, $itemCount, $categoryName, $maxColumns, $showLetter, $showList, $headerTag = 'h2') {
 		echo '<p>';
 		$categoryId = uniqid();
 		
@@ -218,23 +218,24 @@ class PostSummary {
 			if($itemCount > 0)
 				echo '<hr />';
 		}
-		
-		if($itemCount > 0)
-		{
-			echo '<p>' . __('Jump to', 'post-index') . ' ';
-         
-			$groups = array_keys($item);
-			$countOfGroups = count($groups);
-         
-			for($i = 0; $i < $countOfGroups; $i++) {
-				echo '<a href="#letter_' . $categoryId . '_' . $groups[$i] . '">' . $groups[$i] . '</a>';
-				if($i < ($countOfGroups-1)) {
-					echo ',';
+
+		if ($itemCount > 0) {
+			if ($showList) {
+				echo '<p>' . __('Jump to', 'post-index') . ' ';
+
+				$groups = array_keys($item);
+				$countOfGroups = count($groups);
+
+				for ($i = 0; $i < $countOfGroups; $i++) {
+					echo '<a href="#letter_' . $categoryId . '_' . $groups[$i] . '">' . $groups[$i] . '</a>';
+					if ($i < ($countOfGroups - 1)) {
+						echo ',';
+					}
+					echo ' ';
 				}
-				echo ' ';
+
+				echo '</p>' . "\n";
 			}
-			
-			echo '</p>' . "\n";
 			
 			$itemCountPerGroup = 2;							// used for the calculation of items per column.
 			$maxPostsPerColumn = floor(($countOfGroups * $itemCountPerGroup + $itemCount) / $maxColumns);

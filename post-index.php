@@ -70,6 +70,7 @@ function post_index_init() {
                                            , 'post_type' => null
                                            , 'columns' => 1
 						                   , 'show_letter' => true
+						                   , 'show_list' => true
 						                   , 'groupby_cf' => null
                                            )
                                    , $atts 
@@ -77,6 +78,7 @@ function post_index_init() {
                    );
 
             $show_letter = filter_var($show_letter, FILTER_VALIDATE_BOOLEAN);
+			$show_list = filter_var($show_list, FILTER_VALIDATE_BOOLEAN);
                    
             if(empty($post_type) && empty($category)) {
             	$category = $postIndexPluginSettings->settings['defaultCategory'];
@@ -86,7 +88,7 @@ function post_index_init() {
 
 			ob_start();	
 			$ps->parse($category, $groupby, $groupby_cf, $categoryslug, $post_type);
-			$ps->printOut($columns, $show_letter);
+			$ps->printOut($columns, $show_letter, $show_list);
 		
 			$content = ob_get_contents();
 			ob_end_clean();
